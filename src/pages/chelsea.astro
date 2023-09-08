@@ -1,0 +1,55 @@
+---
+import Footer from '../layouts/TheFooter.astro';
+import Hero from '../layouts/chelsea/Hero.astro'
+import Layout from '../layouts/chelsea/Layout.astro'
+import Nav from '../components/nav/Nav.astro'
+import Overview from '../layouts/chelsea/Overview.astro'
+import Understand from '../layouts/chelsea/Understand.astro'
+import Proposed from '../layouts/chelsea/Proposed.astro'
+import DesignProcess from '../layouts/chelsea/Design.astro'
+import MarketAnalysis from '../layouts/chelsea/Market.astro'
+import Benefits from '../layouts/chelsea/Benefits.astro';
+import Conclusion from '../layouts/chelsea/Conclusion.astro';
+import Tools from '../layouts/chelsea/Tools.astro';
+import Team from '../layouts/chelsea/Team.astro';
+import ContactUs from '../layouts/chelsea/ContactUs.astro'
+import Nexter from '@compo/Nexter.astro'
+---
+<Layout title="Crack X Chelsea">
+    <div class="fixed w-full bg-black top-0 z-10 border-b-[1px] border-b-white border-opacity-20 ">
+		<Nav></Nav>
+	</div>
+
+    <Hero/>
+
+    <main>
+        <Overview/>
+
+        <Understand/>
+
+        <Proposed/>
+
+        <DesignProcess/>
+
+        <MarketAnalysis/>
+
+        <Benefits/>
+
+        <Conclusion/>
+
+        <Tools/>
+
+        <Team/>
+
+        <ContactUs/>
+    </main>
+
+    <Nexter
+        leftText="Crack Headphones"
+        leftUrl="headphones"
+    />
+
+    <Footer
+        footerStyle="bg-grade md:bg-transparent relative mt-[40px]"
+    />
+</Layout>

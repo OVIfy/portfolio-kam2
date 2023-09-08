@@ -1,0 +1,41 @@
+---
+import Section from "../../components/Section.astro";
+import Heading from "../../components/typography/Heading.astro";
+import Card from "../../components/Card.astro";
+---
+
+<Section style="relative">
+    <div class="absolute h-full w-full bg-[length:90%_10%] md:bg-[length:50%_10%] bg-right-top bg-no-repeat opacity-20 hover:opacity-40 top-[40px] right-[40px]"></div>
+
+    <Heading style="mb-[80px]">Overview</Heading>
+
+    <div class="md:flex max-w-[1000px] mx-auto">
+      
+
+        <Card 
+            headingText="GOALS"
+            cardStyle="text-center sm:text-left"
+            noline
+        >
+            <ul class="text-left list-decimal list-inside leading-6 md:leading-8">
+                <li> Increase engagement with fans and attract new viewers by offering a unique and exciting way to experience live football matches</li>
+                <li>Provide greater accessibility to live football matches for people who may not be able to attend the games in person.</li>
+                <li>Generate revenue through increased viewership and the ability to offer premium virtual reality experiences to fans for an additional fee.</li>
+                <li>The primary goal of incorporating virtual reality technology into live streaming football matches is to provide fans with a more immersive and engaging experience.</li>
+            </ul>
+        </Card>
+        <div class="w-full h-[24px] md:hidden"></div>
+        <Card 
+            headingText="ABOUT"
+            cardStyle="text-center sm:text-left md:mt-[62px] shadow-xl"
+            noline
+        >
+            <p>
+                <b class="italic font-bold text-black">“This App has made me feel very much like I'm part of the team. A Blue i have always been, I can feel the Stamford Bridge atmosphere from here. I love Chelsea FC and the App, in a way puts me In London...” - Wilson Ndlovu.</b><br/><br/>
+                Virtual reality (VR) is an immersive technology that allows users to experience a simulated environment as if they were physically present in it. 
+                One of the many exciting applications of VR is the ability to watch live sports events in a fully immersive way, as if one were actually at the game.<br/><br/>
+                This document will provide an overview of the introduction of VR into a live football viewing experience at the Stamford Bridge.
+            </p>
+        </Card>
+    </div>
+</Section>

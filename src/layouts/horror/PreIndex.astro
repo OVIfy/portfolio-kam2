@@ -1,0 +1,256 @@
+---
+import IconDeck from "../components/IconDeck.astro";
+import DualCard from "../components/DualCard.astro";
+import ImageCard from "../components/ImageCard.astro";
+import IconBox from "../components/IconBox";
+import Card from "../components/Card.astro";
+---
+<div class="fixed top-0 overflow-auto bottom-0 right-0 left-0 z-[300] pre opacity-0">
+    <div class="relative bg-black bg-[url('/images/pee/manindark.png')] bg-center bg-cover bg-no-repeat flex flex-col gap-4 justify-between pb-8 sm:pb-0 sm:justify-center items-center min-h-screen ">
+        <div class=" top-[10px] md:top-0">
+            <IconBox text='CRACKLABS' url="/images/icons/icon-logo.png"/>
+        </div>
+        <div class="w-[90%] text-center lg:w-[990px] border-[0.5px] sm:border-0 border-secondary-color border-opacity-30">
+            <div class="inline-block w-[8%] aspect-square hover:-rotate-[20deg] bg-[url('/images/icons/icon-youtube.svg')] bg-contain bg-no-repeat transition-all hover:scale-[1.1] duration-500 transform hover:cursor-pointer top-[20px] play-card-btn"></div>
+            
+            <DualCard
+                control
+                cardStyle="one"
+            >
+                <ImageCard 
+                    url="/images/cards/card-vault.jpg"
+                    corner
+                    slot="left"
+                    text="HORROR VAULT"
+                >
+                    <div class="circle w-[10px] h-[10px] mx-auto bg-neutral-color rounded-full absolute top-[calc(50%-10px)] bottom-[calc(50%-10px)] right-[-5px] z-[100]"></div>
+                </ImageCard>
+                <Card 
+                    titleText="FRIGHT OF THE MACABRE"
+                    headingText="FEAR"
+                    bodyText="<span class='text-neutral-color font-bloody text-[24px] md:text-[30px] lg:text-[40px] font-bold'>W</span>elcome to the Horror Vault, where every section of the vault promises a unique and entertaining scare. From blood-curdling stories to interactive horror games, we have something for every brave soul who dares to venture forth. So, grab your courage and join us on this terrifying adventure!"
+                    baseText="Are you ready to confront the darkness and see what lies beneath?"
+                    buttonText="BRING ON THE DARKNESS"
+                    actionText="No, Thanks"
+                    slot="right"
+                />
+                <div class="w-full text-[22px] bg-primary-color flex items-center justify-center gap-6 py-3" slot="fallback">
+                    <h1 class="text-neutral-color font-bloody text-center">HORROR <br> VAULT</h1>
+                    <div class="w-[50px] h-[50px] bg-black bg-blend-hard-light bg-[url('/images/fire.gif')] bg-center bg-cover"></div>
+                </div>
+            </DualCard>
+
+            <DualCard
+                control
+                cardStyle="text-center hidden two"
+            >
+                <ImageCard 
+                    url="/images/cards/card-vault.jpg"
+                    corner
+                    slot="left"
+                >
+                    <div class="circle2 w-[10px] h-[10px] mx-auto bg-neutral-color rounded-full absolute top-[calc(50%-10px)] bottom-[calc(50%-10px)] right-[-5px] z-[100]"></div>
+                    <p class="text leading-[60px] text-[65px] lg:text-[96px] text-neutral-color opacity-40 font-bloody">HAHAHA<br>HAHA</p>
+                </ImageCard>
+                <Card 
+                    slot="right"
+                >
+                    <div class="text-center min-h-[40vh] flex flex-col justify-center items-center gap-4">
+                        <h2 class="text-center card-heading heading text-[32px] xl:text-[56px] xl:mt-[12px] font-bold leading-10 tracking-[2px] relative inline-block sm:after:hidden after:content-[''] after:w-[50%] after:h-[1.5px] after:block after:bg-neutral-color after:relative after:left-[23%]">HAHA</h2>
+                        <p class="text-neutral-color font-bold text-center inline-block">It's too late for that now The darkness has already taken hold, and there's no going back.</p>
+                    </div>
+                </Card>
+                <div class="w-full text-[22px] bg-primary-color flex items-center justify-center gap-6 py-3" slot="fallback">
+                    <h1 class="text-neutral-color font-bloody text-center">HAHAHA <br> HAHA</h1>
+                    <div class="w-[50px] h-[50px] bg-black bg-blend-hard-light bg-[url('/images/fire.gif')] bg-center bg-cover"></div>
+                </div>
+            </DualCard>
+            <div class="text-center md:absolute left-0 top-[30%]">
+                <IconDeck
+                    width="12px"
+                    urls={[
+                        '/images/icons/icon-twitter.png',
+                        '/images/icons/icon-insta.png',
+                        '/images/icons/icon-email.png',
+                        '/images/icons/icon-door.png'
+                    ]} 
+                    contStyle="flex-row md:flex-col bg-transparent"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="sm:hidden mob-circle w-[10px] h-[10px] mx-auto bg-neutral-color rounded-full absolute top-[calc(100%-5px)] right-[calc(100%-5px)] z-[100]"></div>
+</div>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    let preHome = document.querySelector('.pre') as HTMLElement
+    let home = document.querySelector('.index') as HTMLElement
+    //desktop
+
+    let btn = document.querySelector('.one .button') as HTMLElement
+    let circle = document.querySelector('.one .circle') as HTMLElement
+    let circle2 = document.querySelector('.circle2') as HTMLElement
+
+    let mobCircle = document.querySelector('.pre .mob-circle') as HTMLElement
+    let homeCircle = document.querySelector('.home-circle') as HTMLElement
+
+    let card1 = document.querySelector('.pre .one') as HTMLElement
+    let card2 = document.querySelector('.pre .two') as HTMLElement
+    let actText = document.querySelector('.one .act') as HTMLElement
+
+    let preTimeoutID
+    let html = document.querySelector('html') as HTMLElement
+
+    //animation elements
+    let anim = document.querySelectorAll('.anim-up') as NodeListOf<HTMLElement>
+    let animto = document.querySelectorAll('.anim-up-together') as NodeListOf<HTMLElement>
+    let boxs = document.querySelectorAll('.box-up') as NodeListOf<HTMLElement>
+
+    //btn for playing card
+    const playCardBtn = document.querySelector('.play-card-btn') as HTMLElement
+
+    //audio
+    const doorCreakSound = new Audio('/audio/door.mp4')
+    const evilLaughSound = new Audio('/audio/evilLaugh.mp4')
+    const thunderSound = new Audio('/audio/thunder.mp4')
+    const bgSound = new Audio('/audio/bg.mp3')
+
+    const horror1 = new Audio('/audio/horror.mp3')
+    const horror2 = new Audio('/audio/horror2.mp3')
+
+    
+
+    
+
+
+
+    console.log(evilLaughSound)
+
+
+    anim.forEach(ele => ele.style.opacity = '0')
+    animto.forEach(ele => ele.style.opacity = '0')
+    boxs.forEach(box => box.style.opacity = '0')    
+    
+    html.style.overflow = 'hidden'
+
+    homeCircle.animate([{scale: window.innerWidth}],{duration:100, fill:'forwards'}) //fill the second screen with the entire circle
+    preHome.style.opacity = '1'
+
+
+  btn.onclick = () => {
+    horror1.pause()
+    sounds()
+    preTimeoutID = setTimeout(()=> {
+        handletransition()
+    }, 4000)
+  }
+
+    actText.onclick = (e) =>{
+        horror1.pause()
+        horror2.play()
+        card1.style.display = 'none'
+        card2.style.display = 'block'
+
+        clearTimeout(preTimeoutID)
+        setTimeout(sounds, 3000)
+        // sounds()
+
+        setTimeout(()=> {
+            handletransition()
+        }, 5000)
+    }
+
+
+    function sounds(){
+        doorCreakSound.play()
+        evilLaughSound.play()
+        thunderSound.play()
+
+        evilLaughSound.volume = 0.2
+        thunderSound.volume = 0.3
+        bgSound.volume = 0.3
+
+        setInterval(()=>{
+            evilLaughSound.play()
+            thunderSound.play()
+        }, 20000)
+
+
+        doorCreakSound.onended = () => {
+            bgSound.play()
+            bgSound.onended = () => {
+                bgSound.play()
+            }
+        }
+    }
+
+    async function handletransition(){
+        circle2.animate([{scale : window.innerWidth}],{duration: window.innerWidth * 2, fill:'forwards'})
+        let anim2 = circle.animate([{scale : window.innerWidth}],{duration: window.innerWidth * 2, fill:'forwards'})
+        mobCircle.animate([{scale: window.innerWidth * 2}],{duration:window.innerWidth * 2, fill:'forwards'})
+
+
+            anim2.onfinish = (e) => { //when the big circle is done covering the screen
+                home.style.opacity = '1'
+                preHome.style.display = 'none'
+                html.scroll(0,0)
+                let homeanim = homeCircle.animate([{scale: 1, top:'20%', right:'calc(20%-10px)'}],{duration:window.innerWidth * 2, fill:'forwards'})          
+                homeanim.onfinish = (e) => {
+                    html.style.overflowY = 'auto'
+                    gsap.fromTo(".anim-up", {opacity:0, y:200},{opacity:1, y: 0, duration : 2, stagger : 2});
+                    gsap.fromTo(".anim-up-together", {opacity:0, y:200},{opacity:1, y: 0, duration : 2, delay: 4});
+
+                    gsap.fromTo(".curses-box", {opacity:0, y:200},{opacity:1, y: 0, duration : 2, scrollTrigger : {
+                        trigger:".curses-box",
+                        start : '20px 70%'
+                    }});
+                    gsap.fromTo(".pee-box", {opacity:0, y:200},{opacity:1, y: 0, duration : 2, scrollTrigger : {
+                        trigger:".pee-box",
+                        start : '20px 70%'
+                    }});
+                    gsap.fromTo(".story-box", {opacity:0, y:200},{opacity:1, y: 0, duration : 2, scrollTrigger : {
+                        trigger:".story-box",
+                        start : '20px 70%'
+                    }});
+                    gsap.fromTo(".evidence-box", {opacity:0, y:200},{opacity:1, y: 0, duration : 2, scrollTrigger : {
+                        trigger:".evidence-box",
+                        start : '20px 70%'
+                    }});
+                    gsap.fromTo(".would-box", {opacity:0, x:200},{opacity:1, x: 0, duration : 2, scrollTrigger : {
+                        trigger:".would-box",
+                        start : '20px 70%'
+                    }});
+                    gsap.fromTo(".spot-box", {opacity:0, y:200},{opacity:1, y: 0, duration : 2, scrollTrigger : {
+                        trigger:".spot-box",
+                        start : 'top center'
+                    }});
+                }
+            }
+    }
+
+
+    //play card button animation
+    playCardBtn.animate([{scale : '1'}, {scale:'1.1'}, {scale:'1'}], {duration:2000, iterations : Infinity, delay: 1000})
+
+    playCardBtn.onclick = () => {
+        horror1.play()
+    }
+
+    //listening for events from the video elements
+    document.addEventListener('videoisplaying', (e)=>{
+		bgSound.volume = 0
+        evilLaughSound.volume = 0
+        thunderSound.volume = 0
+	}, false)
+
+    document.addEventListener('videoisnotplaying', (e)=>{
+		bgSound.volume = 0.3
+        evilLaughSound.volume = 0.2
+        thunderSound.volume = 0.3
+	}, false)
+</script>

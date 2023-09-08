@@ -1,0 +1,92 @@
+---
+import Section from "@compo/Section.astro";
+import Heading from "@compo/typography/Heading.astro";
+---
+<Section style="lg:pb-[80px] md:pb-[80px]">
+    <Heading>Meet the<br />Crack Headphones <span class="inline-block relative text-my-red"><hr class="absolute left-0 right-0 -bottom-[5px] md:-bottom-[10px] h-[3px] md:h-[5px] bg-my-red border-my-red">Team</span></Heading>
+    
+    <div class="grid gap-4 grid-cols-2 md:grid-cols-4 portfolio mt-[64px]">
+        <section>
+            <Heading Level="h3">Kamil Oseni</Heading>
+            <p class="mt-2 mb-6 text-my-red">UX Researcher, Human Interface & Product Designer</p>
+            <div class="flex items-center gap-2">
+                <p class="text-[11px] text-my-red font-bold text mouse-change">VIEW PORTFOLIO</p> 
+                <div class="w-[12px] h-[12px] bg-contain bg-no-repeat bg-center bg-[url('/images/icons/icon-link.svg')] btn mouse-change"></div> 
+            </div>
+        </section>
+
+        <section>
+            <Heading Level="h3">Ria Kunti</Heading>
+            <p class="mt-2 mb-6 text-my-red">3D</p>
+        </section>
+
+        <section>
+            <Heading Level="h3">Crixx Ayo</Heading>
+            <p class="mt-2 mb-6 text-my-red">Graphic Designer</p>
+        </section>
+
+        <section>
+            <Heading Level="h3">Kasali Abimbola</Heading>
+            <p class="mt-2 mb-6 text-my-red">3D</p>
+        </section>
+    </div>
+</Section>
+<style>
+    .btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn::after{
+        content: '';
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: #E5322E;
+        flex-shrink: 0;
+        border-radius: 6px;
+        opacity: 0;
+    }
+    .btn:hover::after{
+        opacity: 0.2;
+    }
+    .btn.clicked:hover::after{
+        animation: click 0.2s ease forwards;
+    }
+
+    .text:hover + .btn::after{
+        opacity: 0.2;
+    }
+
+    @keyframes click{
+        0%{
+            transform: scale(1);
+        }50%{
+            transform: scale(1.3);
+        }100%{
+            transform: scale(1);
+        }
+    }
+</style>
+<script>
+    let btns = document.querySelectorAll('.portfolio .btn') as NodeListOf<HTMLElement>
+    let texts = document.querySelectorAll('.portfolio .text') as NodeListOf<HTMLElement>
+
+    let go = true
+    btns.forEach(btn => 
+    {
+        btn.onclick = () => {
+            if(go)
+            btn.classList.add('clicked')
+            
+            setTimeout(()=>{
+                btn.classList.remove('clicked')
+                go = true
+            },200)
+
+            go = false
+        }
+
+
+    })
+</script>

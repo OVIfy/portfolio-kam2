@@ -1,0 +1,31 @@
+---
+interface Prop{
+    url : string,
+    w? : string,
+    h? : string,
+    full? : boolean,
+    corner? : boolean
+}
+
+import { twMerge } from "tailwind-merge";
+
+let {url, w, h, full, corner, text} = Astro.props
+
+// if(full){
+//     w = '100%'
+//     h = '100%'
+// }
+
+
+
+---
+<div style={`width: ${w && w + 'px'}; height: ${h? h + 'px' : '100%'};`}  class={twMerge(corner && `box-border relative before:content-[''] before:inline-block before:w-[100px] before:h-[100px] before:border-l-2 before:border-b-2 before:border-neutral-color before:absolute before:-bottom-6 before:-left-6`, 'd-img')}>
+    <div style={`background-image: url('${url}');`} class={twMerge(`image h-full w-full bg-center bg-cover flex items-center justify-center text-center`)}>
+        {text && <p class="text text-[65px] lg:text-[96px] text-neutral-color opacity-40 font-bloody" set:html={text}></p>}
+        <slot />
+    </div>
+</div>
+
+<script>
+
+</script>

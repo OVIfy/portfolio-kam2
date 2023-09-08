@@ -1,0 +1,17 @@
+---
+const {control, cardStyle} = Astro.props
+import { twMerge } from "tailwind-merge";
+---
+<section class={twMerge("w-full flex justify-center", cardStyle)}>
+    <div class="flex flex-col sm:grid sm:grid-cols-2 sm:pl-3 sm:pr-3 sm:pt-8 w-full dual-card">
+        <div class="relative sm:left-3 sm:bottom-8 z-[2] hidden sm:block justify-items-end ">
+            <slot name="left" />
+        </div>
+        <div class="sm:hidden">
+            <slot name="fallback" />
+        </div>
+        <div class="relative sm:right-3">
+            <slot name="right" />
+        </div>
+    </div>
+</section>

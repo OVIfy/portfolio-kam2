@@ -1,0 +1,168 @@
+---
+import MusicListItem from "./MusicListItem.astro";
+---
+<section class="flex justify-center relative">
+    <div class="relative px-1 py-4 bg-bottom sm:p-[40px] bg-[#151515] w-[90%] lg:w-[70%] h-[900px] sm:h-[800px] lg:h-fit flex flex-col rounded-2xl text-secondary-color">
+        <div class="w-[100px] sm:w-[300px] z-[-1] -left-[45px] sm:-left-[140px] -top-[56px] sm:-top-[170px] aspect-square bg-[url('/images/skull.GIF')] bg-center bg-contain bg-no-repeat absolute"></div>
+        <div class="bg-black sm:basis-[50%] w-full rounded py-[40px] sm:px-[29px] md:px-[54px] flex items-center text-center md:text-left md:flex flex-col md:items-start bg-[url('/images/spotify/man.png')] bg-center bg-contain bg-no-repeat md:bg-right">
+            <div class="text-[12px] py-2 px-4 bg-spotify-green font-semibold  bg-opacity-50">PLAYLIST OF THE DAY</div>
+            <h2 class=" font-bloody text-[48px] text-spotify-green mt-[40px]">HORROR <br> MOVIE VIBES</h2>
+            <p class="text-[12px] leading-4 text-secondary-color text-opacity-50  p-2 bg-primary-color">Billie Eilish, Labrinth, Shaed and others.</p>
+            
+            <div class="mt-[40px] ">
+                <div class="group transition-all hover:bg-secondary-color hover:border-secondary-color border-[1px] border-transparent hover:border-[1px] inline-flex gap-2 px-4 py-2 bg-spotify-green items-center rounded">
+                    <div class="w-[22px] h-[22px] md:w-[30px] bg-spotify-green md:h-[30px] rounded-full bg-[url('/images/spotify/spotify.svg')] bg-center bg-cover"></div>
+                    <p class="transition-all duration-1000 group-hover:text-spotify-green text-[12px] font-bold">Listen Now</p>
+                </div>
+    
+                <div class="l-btn transition-all inline-flex gap-2 px-4 py-2 border-spotify-green border-[1px] items-center justify-center rounded ml-4">
+                    <!-- <div class="w-[30px] h-[30px] bg-[url('/images/spotify/heart.svg')] bg-center bg-contain bg-no-repeat"></div> -->
+                    <svg class="w-[22px] h-[22px] md:w-[30px] md:h-[30px]" id="svg" width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="url(#gra)" d="M8.99935 1.33325C4.94935 1.33325 1.66602 4.61659 1.66602 8.66659C1.66602 15.9999 10.3327 22.6666 14.9993 24.2173C19.666 22.6666 28.3327 15.9999 28.3327 8.66659C28.3327 4.61659 25.0493 1.33325 20.9993 1.33325C18.5193 1.33325 16.326 2.56459 14.9993 4.44925C14.3231 3.48606 13.4248 2.69998 12.3804 2.15758C11.336 1.61518 10.1762 1.33242 8.99935 1.33325Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs id="d">
+                        <linearGradient id="gra" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop id="stop-1" offset="0%"  stop-color="transparent"/>
+                            <stop id="stop-2"  offset="100%" stop-color="white"  />
+                        </linearGradient>
+                        </defs>
+                    </svg>
+                    <p class="text-[12px] font-bold">1,234</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="px-5 mt-[32px] mb-[24px] flex justify-between items-center">
+            <p class="text-[12px] md:text-[16px] md:my-4 inline-block font-bold">Popular Songs</p>
+            <p class="text-[11px] md:text-[12px] md:my-5 text-right opacity-50 inline-block font-bold">See All</p>
+        </div>
+        <div class="scroll-cont grid md:grid-cols-2 px-2 sm:px-5 gap-4 gap-x-[30px] xl:gap-x-[40px]">
+            <MusicListItem 
+                label="billie elishs song"
+                songNumber="01"
+                songImage="/images/spotify/billie.jpg"
+                songArtist="Billie Eilish"
+                songDuration="3:12"
+                songName="COPYCAT"
+		    />
+            <div class="md:col-[1]">
+                <MusicListItem 
+                    label="shaeds song image"
+                    songNumber="02"
+                    songImage="/images/spotify/euphoria.jpg"
+                    songArtist="Labrinth"
+                    songDuration="2:33"
+                    songName="Still Don't Know My Name"
+                />
+            </div>
+            <div class="md:col-[1]">
+                <MusicListItem 
+                    label="sub urban song image"
+                    songNumber="03"
+                    songImage="/images/spotify/cradles.jpg"
+                    songArtist="Sub Urban"
+                    songDuration="3:29"
+                    songName="Cradles"
+                />
+            </div>
+            <div class="md:col-[2] md:row-[1]">
+                <MusicListItem 
+                    label="billie elishs song"
+                    songNumber="04"
+                    songImage="/images/spotify/trampolin.jpg"
+                    songArtist="Shaed"
+                    songDuration="3:03"
+                    songName="Trampoline"
+                />
+            </div>
+            <div class="md:col-[2] md:row-[2]">
+                <MusicListItem 
+                    label="billie elishs song"
+                    songNumber="05"
+                    songImage="/images/spotify/jigsaw.jpg"
+                    songArtist="Conan Gray"
+                    songDuration="3:28"
+                    songName="Jigsaw"
+                />
+            </div>
+            <div class="md:col-[2] md:row-[3]">
+                <MusicListItem 
+                    label="billie elishs song"
+                    songNumber="06"
+                    songImage="/images/spotify/afraid.jpg"
+                    songArtist="The Neighbourhood"
+                    songDuration="4:11"
+                    songName="Afraid"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    #gra stop:first-child{
+        transition: all 0.2s ease-in-out;
+    }
+    .l-btn:hover{
+       border-color: white;
+    }
+    .l-btn:hover  #stop-1 {
+        stop-color: white;
+    }
+
+
+    .scroll-cont{
+        scrollbar-width: thin;
+        scrollbar-color: #215D1F black;
+        overflow: auto;
+    }
+
+    /* scroll bar */
+    .scroll-cont::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .scroll-cont::-moz-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .scroll-cont::-ms-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    /* scroll thumb */
+    .scroll-cont::-webkit-scrollbar-thumb {
+        background-color: #215D1F;
+        border-radius: 3px;
+    }
+
+    .scroll-cont::-moz-scrollbar-thumb {
+        background-color: #999;
+        border-radius: 3px;
+    }
+
+    .scroll-cont::-ms-scrollbar-thumb {
+        background-color: #999;
+        border-radius: 3px;
+    }
+
+    /* scroll track */
+    .scroll-cont::-webkit-scrollbar-track {
+        background-color: black;
+        border-radius: 3px;
+    }
+
+    .scroll-cont::-moz-scrollbar-track {
+        background-color: #eee;
+    }
+
+    .scroll-cont::-ms-scrollbar-track {
+        background-color: #eee;
+    }
+
+    /* corner on firefox */
+    .scroll-cont::-webkit-scrollbar-corner{
+        border-radius: 10px;
+    }
+</style>

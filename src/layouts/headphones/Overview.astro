@@ -1,0 +1,45 @@
+---
+import Section from "@compo/Section.astro";
+import Heading from "@compo/typography/Heading.astro";
+import Card from "@compo/Card.astro";
+---
+
+<Section style="relative">
+    <div class="absolute h-full w-full bg-[length:90%_10%] md:bg-[length:50%_10%] bg-right-top bg-no-repeat opacity-20 hover:opacity-40 top-[40px] right-[40px]"></div>
+
+    <Heading style="mb-[80px]">Overview</Heading>
+
+    <div class="md:flex max-w-[1000px] mx-auto">
+      
+
+        <Card 
+            headingText="GOALS"
+            cardStyle="text-center sm:text-left shadow-lg"
+            noline
+        >
+            <ul class="text-left list-decimal list-inside leading-6 md:leading-8">
+                <li>Provide a high-end listening experience.</li>
+                <li>Design a product that is convenient and easy to use.</li>
+                <li>Design a product that is long-lasting and comfortable.</li>
+                <li>User-friendly design</li>
+                <li>Enable personalized customization options for users.</li>
+                <li>Develop a product that boasts a high-end and luxurious aesthetic</li>
+            </ul>
+        </Card>
+        <div class="w-full h-[24px] md:hidden"></div>
+        <Card 
+            headingText="ABOUT"
+            cardStyle="text-center sm:text-left md:mt-[62px]"
+            noline
+        >
+            <p>
+                No matter how interesting an activity may be, no one enjoys stress.
+                And to avoid stress would be like trying to do a vigorous exercise without sweating; 
+                but that’s exactly what we tried to do with the headphones.<br/><br>
+                Everything about the design is focused on delivering incredible sound and comfort with enhanced simplicity.<br><br>
+                As part of a research development in the headphone market, we discovered some interesting finds as regards to peoples’ needs. 
+                With these, we were able to determine a common volume and this was our starting point for developing a brand to meet a broad range of needs
+            </p>
+        </Card>
+    </div>
+</Section>

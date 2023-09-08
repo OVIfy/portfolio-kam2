@@ -1,0 +1,14 @@
+---
+
+const {datas = [{name:'james', age:'12'}, 'bobby']} = Astro.props
+---
+<div id="data-ele" class="relative" data-array={`${JSON.stringify(datas)}`}>
+
+</div>
+
+<script>
+    const dataElement = document.querySelector('#data-ele')
+
+    // let data = JSON.parse(dataElement.dataset.array)
+    // console.log(data[0]['name'])
+</script>

@@ -1,0 +1,28 @@
+---
+
+const {w, h, url, url1, url2, overlayText, bottomText, alt} = Astro.props
+---
+<div tabindex="0" class="inline-block curses-card hover:cursor-pointer">
+    <div aria-label={alt} role="img" style={`background-image: url('${url}');`} class="bg-center bg-cover  w-[200px] h-[200px] md:w-[300px] md:h-[300px] peer">
+        <div class="relative text-center bg-secondary-color w-full h-full opacity-0 flex flex-col items-center justify-center gap-6 transition-all duration-1000 hover:opacity-100 px-4">
+            <div class:list={["w-full h-[30%] flex items-center", url1? 'justify-between' : 'justify-start']}>
+                <div class="w-[50px] h-[20px] bg-[url('/images/carousels/Ellipse.png')] bg-center bg-contain bg-no-repeat"></div>
+                {url1 && <div style={`background-image: url('${url1}')`} class="w-[30%] h-full bg-[url('/images/carousels/raven1.png')] bg-center bg-cover bg-no-repeat"></div>}
+            </div>
+            <p class="md:text-[17px] text-[11px] select-none text-primary-color font-[500]">{overlayText}</p>
+            <slot />  
+            <div class:list={["w-full h-[30%] flex items-center", url2? 'justify-between' : 'justify-end']}>
+                {url2 && <div style={`background-image: url('${url2}')`} class="w-[30%] h-full bg-center bg-cover bg-no-repeat"></div>}
+                <div class="w-[50px] h-[20px] bg-[url('/images/carousels/Ellipse.png')] bg-center bg-contain bg-no-repeat"></div>
+            </div>
+            <!-- <div class="absolute top-0  left-0  bottom-0 right-0 bg-transparent"></div> -->
+        </div>
+    </div>
+    <p class="text-center text-[11px] md:text-[16px] text-neutral-color font-bold mt-4 select-none peer-hover:text-secondary-color transition-all duration-500">{bottomText}</p>
+</div>
+
+<script>
+    let card = document.querySelector('.curses-card')
+
+
+</script>

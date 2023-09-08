@@ -1,0 +1,32 @@
+---
+
+---
+<section class="relative"> 
+    <div class="bg-[url('/images/pee/book.jpg')] bg-center bg-cover relative w-full text-center">
+        <div class='relative z-[2] text-center inline-block text-secondary-color pt-[52px] pb-[30px] pr-[30px] pl-[70px] md:py-[156px] md:pl-[200px] md:pr-[50px]'>
+            <p class="md:text-left text-secondary-color text-[11px] font-bold tracking-[6px] leading-5 md:text-[12px] md:tracking-[16px]"><span class="text-red-500 relative inline-block after:content-[''] after:inline-block after:w-[2px] after:bg-secondary-color after:absolute after:bottom-0 after:top-0">#3</span> DNA ANALYSIS</p>
+            <div class="my-2 md:text-left">
+                <p class="text-[24px] font-bold tracking-[5px] leading-[32px] lg:text-[80px] md:text-[60px] md:leading-[96px]">TRAIL</p>
+                <p class="text-neutral-color font-bloody text-[40px] font-bold leading-[40px] transform  relative bottom-3 md:text-[96px] md:leading-[104px] md:bottom-8">HOMICIDE NOTE</p>
+            </div>
+            <p class="text-[11px] md:text-[12px] lg:text-[16px] leading-4 md:text-left text-3 tt md:leading-[30px]">Blood-soaked note found at the crime scene containing a cryptic message “You'll find the key to the solution in the victim's past. Look for something they were trying to keep hidden, something that would have ruined their reputation if it had been exposed.”</p>
+            <p class="text-[11px] text-neutral-color mt-8 md:hidden">Click the note to read</p>
+        </div>
+
+        <div class="absolute top-0 left-0 text-secondary-color text-[8px] tracking-[5px] font-semibold leading-[6px] py-2 px-3 bg-primary-color md:text-[14px] md:leading-[16px] md:py-6 md:px-8 z-[3]">EVIDENCE</div>
+
+        {/* side image card */}
+        <div class="absolute flex items-center  justify-start w-[10%] top-[-50px] bottom-[0px] left-[0px] md:w-[100px] lg:w-[150px]">
+            <div class="note z-[60] bg-contain relative bg-no-repeat bg-left w-full h-[60%] hover:cursor-pointer hover:scale-[1.05] hover:-rotate-[10deg] bg-[url('/images/pee/letter.jpg')]">
+                <div class="hidden absolute top-[0px] lg:right-[-90px] lg:top-[30px] md:flex flex-col items-center">
+                    <p class="text-[12px] text-secondary-color font-semibold">Click to read</p>
+                    <div class="w-[20px] h-[20px] bg-[url('/images/arrow.gif')] bg-center bg-cover transform rotate-90 lg:rotate-180"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+    let note = document.querySelector('.note')
+</script>

@@ -1,0 +1,193 @@
+---
+import Heading from "@compo/typography/Heading.astro";
+import Button from "@compo/Button.astro";
+import data from '../../data/slides';
+
+const {open} = Astro.props
+---
+<astro-slider class="slider " open={open}>
+    <div class="border-my-gray-dark border-y-[1px] border-opacity-30 py-6 px-[32px] lg:px-[80px] md:py-[40px]">
+        <!-- heading -->
+        <div class="flex flex-col">
+            <!-- haeding text -->
+            <slot name="heading" />
+            <!-- heading drop-down -->
+            <button class="open-btn self-end bg-[url('/Images/icons/icon-angle.svg')] w-[24px] aspect-square bg-center bg-contain bg-no-repeat"></button>
+            <!-- buttons -->
+            <slot name="action"/>
+        </div>
+        <div class="p-content overflow-x-auto overflow-y-hidden">
+            <!-- expandable -->
+            <div class="grid grid-flow-col gap-4 p-4 overflow-auto auto-cols-[72%] md:auto-cols-[42%] content origin-top max-h-[1000px]">
+                <slot />
+            </div>
+
+            <!-- base -->
+            <slot name="base"/>
+
+        </div>
+    </div>
+</astro-slider>
+
+<style>
+    .content::-webkit-scrollbar{
+         display: none;
+    }
+
+    .content{
+        scrollbar-width: none;
+    }
+</style>
+
+<script>
+    import { animate, stagger } from "framer-motion/dom";
+
+    class Slider extends HTMLElement{
+        content : HTMLElement = this.querySelector('.content') as HTMLElement
+        parentContent : HTMLElement = this.querySelector('.p-content') as HTMLElement
+        btn : HTMLElement = this.querySelector('.open-btn') as HTMLElement
+        canMove : boolean = false
+        startX : number | undefined = undefined
+        targetX : number | undefined = undefined
+        animation : any = undefined
+        allChildrenElements : any = this.content.children as HTMLCollection
+        colors : any
+        hist : any = [this.allChildrenElements.length - 1, 0]
+        dir : 'L' | 'R' = 'R'
+        animationDone : boolean = true
+        static sliders : Slider[] = []
+        static openSlider : Slider
+
+       constructor(){
+            super();
+            this.btn.addEventListener('click', ()=> this.openSlide())
+
+            // this.btn.addEventListener('click', (e)=> console.log('horray'))
+
+            this.content.addEventListener('mousedown', (e)=> this.move(e, true))
+            this.content.addEventListener('mouseup', (e)=> this.move(e, false))
+            this.content.addEventListener('pointermove', (e)=> {this.move(e, undefined); this.loopSlider(); this.playSlide(true)})
+            this.content.addEventListener('mouseleave', (e)=> this.playSlide())
+            // this.content.addEventListener('pointerout', (e)=> this.playSlide())
+            this.content.addEventListener('pointerdown', (e)=> this.playSlide(true))
+   
+            Slider.sliders.push(this)
+            Slider.openSlider = Slider.sliders[0]
+            this.openSlide()
+            this.playSlide()
+       }
+
+       openSlide(){
+            let value = this.hasAttribute('open')
+            let children = this.querySelectorAll('.content img') as NodeListOf<HTMLElement>
+            
+                console.log(this.animationDone, value)
+            // if(this.animationDone)
+            if(value == true && (this.animationDone || this.animationDone == undefined)){
+                this.openSlider()
+                Slider.sliders.forEach(slider => {if(slider !== this) slider.closeSlider()})
+            }
+            if(value == false && (this.animationDone || this.animationDone == undefined)){
+                this.closeSlider()
+            }
+       }
+
+       closeSlider(){
+            let children = this.querySelectorAll('.content img') as NodeListOf<HTMLElement>
+            this.animationDone = false
+            animate(children, {scale : [1, 0.9]}, {duration : 1})
+            .then(()=>{
+                this.parentContent.animate([{maxHeight : 0}], {duration : 1000, fill:'forwards'})
+                this.animationDone = true
+            })
+            // console.log('here')
+            this.btn.animate([{transform : 'rotate(0deg)'}], {duration : 200, fill : 'forwards'})
+            this.setAttribute("open", "")
+       }
+
+       openSlider(){
+            let children = this.querySelectorAll('.content img') as NodeListOf<HTMLElement>
+            this.animationDone = false
+            let jsAnim = this.parentContent.animate([{maxHeight : '600px'}], {duration : 1000, fill:'forwards'})
+            
+            jsAnim.onfinish = () => animate(children, {scale : [0.9, 1]}, {duration : 1, delay : stagger(0.3)})
+            .then(()=>{
+                this.animationDone = true
+            })
+            this.btn.animate([{transform : 'rotate(180deg)'}], {duration : 200, fill : 'forwards'})
+            this.removeAttribute("open")
+       }
+
+       //this function takes the last element to the begining if we are at the end of the slide 
+       //and repeats the first element if we hit the end of the slider
+       loopSlider(){
+            if(true){
+                //if we are at the start of the slide
+                if(this.content.scrollLeft == 0){
+                    // console.log('here')
+                    // let oldScroll = this.content.scr
+                    this.content.prepend(this.allChildrenElements[this.hist[0]])
+                    // console.log(oldScroll)
+                    this.content.scrollLeft = this.allChildrenElements[this.hist[0]].offsetWidth + 16
+                    // console.log(this.allChildrenElements[this.hist[0]].offsetWidth, this.content.style.rowGap)
+                }
+
+                // console.log(this.content.scrollLeft, this.content.scrollWidth - this.content.clientWidth - 16)
+                if(this.content.scrollLeft >= this.content.scrollWidth - this.content.clientWidth - 16){
+                    this.content.append(this.allChildrenElements[0])
+                    this.content.scrollLeft = this.content.scrollLeft - this.allChildrenElements[this.hist[0]].offsetWidth - 16
+                }
+
+            }
+
+       }
+
+       playSlide(pause? : boolean){
+        if(pause){
+            this.animation.cancel()
+            return
+        }
+
+        this.animation = animate(0, 1000, {
+            duration: 10000,
+            repeat: Infinity,
+            ease: 'linear',
+            onUpdate : (i) => {
+                // console.log(i)
+                if(this.dir == 'R')
+                this.content.scrollLeft += 1
+                else
+                this.content.scrollLeft -= 1
+
+                // console.log(this.content.scrollLeft)
+                this.loopSlider()
+            }
+         })
+
+       }
+
+        move(e : MouseEvent, newCanMoveValue : boolean | undefined){
+            // console.log(e)
+            if(newCanMoveValue != undefined) this.canMove = newCanMoveValue
+            
+
+            if(this.canMove){
+                if(this.startX == undefined) this.startX = e.clientX
+                let offset = this.startX - e.clientX
+                //setting direction
+                this.dir = offset >= 0 ? 'R' : 'L'
+
+                this.content.scrollLeft += offset * 2
+                this.startX = e.clientX
+            }
+            else{
+
+                this.startX = undefined
+            } 
+
+        }
+
+    }
+
+    customElements.define('astro-slider', Slider)
+</script>

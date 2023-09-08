@@ -1,0 +1,62 @@
+    const cursesCarousel = document.querySelector('.curses-carousel')
+    let canDrag = false
+    let startPos = 0
+    let curPos = 0
+
+    // cursesCarousel.scrollLeft = 200
+    // cursesCarousel.scrollLeft -= 200
+
+    // cursesCarousel.addEventListener('drag',(e)=>{
+    //     if(e.clientX != 0)
+    //         cursesCarousel.scrollLeft += (startPos - e.screenX)
+    //     startPos = e.screenX
+    // })   
+
+    cursesCarousel.addEventListener('mousedown',(e)=>{
+        cursesCarousel.style.cursor = 'grab'
+        startPos = e.screenX
+        canDrag = true
+    })
+
+    cursesCarousel.addEventListener('mouseup',(e)=>{
+        canDrag = false
+    })
+
+    // cursesCarousel.addEventListener('dragstart',(e)=>{
+    //     startPos = e.screenX
+    // })
+
+    // cursesCarousel.addEventListener('dragend',(e)=>{
+    //     // cursesCarousel.scrollLeft += (startPos - e.screenX)
+    //     canDrag = false
+    // })
+
+    cursesCarousel.addEventListener('mousemove',(e)=>{
+        if(canDrag)
+            {
+                cursesCarousel.scrollLeft += (startPos - e.screenX)
+                startPos = e.screenX
+            }
+    })
+
+
+    ////////////2////////////
+
+
+        cursesCarousel.addEventListener('mousedown',(e)=>{
+        cursesCarousel.style.cursor = 'grab'
+        startPos = e.screenX
+        canDrag = true
+    })
+
+    cursesCarousel.addEventListener('mouseup',(e)=>{
+        canDrag = false
+    })
+
+    cursesCarousel.addEventListener('mousemove',(e)=>{
+        if(canDrag)
+            {
+                cursesCarousel.scrollLeft += (startPos - e.screenX)
+                startPos = e.screenX
+            }
+    })

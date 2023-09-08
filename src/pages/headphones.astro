@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Understand from '@lay/headphones/Understand.astro';
+import DesignProcess from '@lay/headphones/DesignProcess.astro';
+import GoingForward from '@lay/headphones/GoingForward.astro';
+import Nexter from '../components/Nexter.astro';
+import Nav from '@compo/nav/Nav.astro';
+import Hero from '@lay/headphones/Hero.astro'
+import Overview from '@lay/headphones/Overview.astro'
+import Competitive from '@lay/headphones/Competitive.astro';
+import Features from '@lay/headphones/Features.astro';
+import Tools from '@lay/headphones/Tools.astro';
+import Team from '@lay/headphones/Team.astro';
+import ContactUs from '@compo/ContactUs.astro';
+import Footer from '../layouts/TheFooter.astro';
+---
+<Layout title="Welcome to Astro.">
+    <div class="fixed w-full bg-black top-0 z-10 border-b-[1px] border-b-white border-opacity-20 ">
+		<Nav></Nav>
+	</div>
+
+   <Hero />
+    
+    <main>
+        <Overview />
+
+        <!-- understanding the user -->
+        <Understand/>
+
+        <!-- build and design process -->
+        <DesignProcess/>
+
+        <!-- competitive audit -->
+        <Competitive/>
+
+        <!-- features -->
+        <Features />
+
+        <!-- tools -->
+        <Tools />
+
+        <!-- Team -->
+        <Team />
+
+        <!-- going forward -->
+        <GoingForward />
+
+        <!-- lets Connect -->
+        <ContactUs />
+    </main>
+
+        <!-- nexter -->
+    <Nexter
+        leftText="Horror Vault with Spotify"
+        leftUrl="/horror"
+        rightText="Crack VR with Chelsea FC"
+        rightUrl='/chelsea'
+    />
+
+        <!-- footer -->
+    <Footer
+        footerStyle="bg-grade md:bg-transparent relative"
+    />
+</Layout>
+<!-- <script>
+    import anime from 'animejs/lib/anime.es.js';
+
+   anime({
+       targets: '.hero-text',
+       translateX: [-700, 0],
+       duration: 800,
+       // easing: 'easeInOutQuad'
+   });
+</script> -->
+<style>
+    b{
+        color: white;
+    }
+</style>

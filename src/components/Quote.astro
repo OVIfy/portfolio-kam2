@@ -1,0 +1,13 @@
+---
+export interface Prop{
+    quote : string
+    author : string
+}
+
+const {quote, author} = Astro.props
+---
+<blockquote class="max-w-[360px] aspect-square py-[52px] px-[16px] bg-[#151515] flex flex-col justify-center text-center md:text-left">
+    <p class="italic">{quote}</p>
+    <br/>
+    <footer><cite class="font-extrabold not-italic">{author}</cite></footer>
+</blockquote>

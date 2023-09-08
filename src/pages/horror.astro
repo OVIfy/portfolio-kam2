@@ -1,0 +1,485 @@
+---
+import Header from "@compo/horror/Header.astro";
+import Layout from "@lay/horror/Layout.astro";
+import ExpandableCard from "@compo/horror/About/ExpandableCard.astro";
+import Card from "@compo/horror/Card.astro";
+import Heading from "@compo/horror/About/Heading.astro";
+import ColorCard from "@compo/horror/About/ColorCard.astro";
+import Portfolio from "@compo/horror/About/Portfolio.astro";
+// import TheFooter from "@lay/horror/TheFooter.astro";
+import Button from "@compo/horror/Button";
+import IconDeck from "@compo/horror/IconDeck.astro";
+import Svg from "@lay/horror/svg.astro";
+import IconBox from "@compo/horror/IconBox";
+import Nexter from '@compo/Nexter.astro'
+import Footer from '../layouts/TheFooter.astro';
+
+import PreAbout from "@lay/horror/PreAbout.astro";
+---
+<Layout title="About Us">
+    <Header slot="header" index="1"/>
+
+    <PreAbout />
+
+    <div class="opacity-0 about mt-20 md:mt-0">
+    <section class=" hero-section md:flex min-h-[85vh] relative mx-4 md:mr-0 lg:ml-[50px] xl:ml-[132px]">
+        <div class="text-horror-secondary-color text-center flex flex-col justify-center md:w-[70%]">
+            <p class="text-[11px] font-bold tracking-[6px] leading-5 md:text-[12px] md:tracking-[16px]"><span class="text-red-500 relative inline-block after:content-[''] after:inline-block after:w-[2px] after:bg-horror-secondary-color after:absolute after:bottom-0 after:top-0">#0</span> IMMERSIVE EXPERIENCE</p>
+			<h2 class="text-[24px] lg:text-[80px] font-bold my-4"> WELCOME TO THE <br> <span class="text-[32px] lg:text-[96px] lg:bottom-20 font-bloody text-horror-neutral-color inline-block relative bottom-5">HORROR VAULT</span></h2>
+        </div>
+        <div class="md:w-[30%]">
+            <Card 
+                titleText="PRELUDE TO A DIRE END"
+                headingText="PETRIFY"
+                bodyText="<span class='text-horror-neutral-color font-bloody text-[24px] md:text-[30px] lg:text-[40px] font-bold'>W</span>elcome to our horror website - where scares never end! With a minimalist design and immersive content, you'll easily navigate through bone-chilling stories and unnerving videos that will keep you entertained and terrified. So come on in and get ready for a thrilling ride into the darkest corners of horror!"
+                buttonText="VIEW DESIGN PROTOTYPE"
+                slot="right"
+                headingStyle="before:opacity-0"
+                bodyStyle="text-left"
+                cardStyle="flex items-center"
+            />
+        </div>
+        <!-- down card -->
+        <div class="text-horror-secondary-color font-bold flex text-center bg-horror-grade md:absolute md:w-[48%] xl:w-[40%] md:bottom-0 md:left-[12%] relative">
+            <div class="w-[20%] bg-horror-secondary-color flex items-center justify-center md:rounded-tl-[16px] ">
+                <p class="text-[8.46px] lg:text-[16px] text-horror-primary-color">Duration</p>
+            </div>
+            <div class="text-[6.43px] lg:text-[12px] w-[40%] border-r-[1px] border-horror-secondary-color my-2">
+                <p><span class="text-[16px] lg:text-[30px]">16</span>days</p>
+                <p class="opacity-50">Research & Design</p>
+            </div>
+            <div class="text-[6.43px] lg:text-[12px] w-[40%] m-y-[5px] my-2">
+                <p><span class="text-[16px] lg:text-[30px]">8</span>days</p>
+                <p class="opacity-50">Development</p>
+            </div>
+            <a href="#over"><div class="hero-arrow hidden md:block absolute -right-[50px] bottom-0 w-[50px] h-[50px] lg:h-[80px] lg:w-[80px] lg:-right-[80px] bg-[url('/images/arrow.gif')] bg-no-repeat bg-contain bg-center transform rotate-90"></div></a>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="over" class="overview-section mx-4 mt-16 md:mx-[50px] lg:mx-[80px] md:mt-[160px]">
+        <div>
+            <Heading text="Overview"/>
+            <div class="w-full h-[48px]"></div>
+            <div class="lg:flex lg:mx-[10%]">
+                <Card 
+                    titleText="A SIGN OF DEADLY INTENT"
+                    headingText="ABOUT"
+                    bodyText="We noticed that many interactive websites with immersive experiences fail to meet standard UX principles, making them less user-friendly despite having impressive frontend development. <br><br> The Horror Vault is a project created by CrackLabs with the specific aim of providing the best possible frontend development while also maintaining basic Human Interface and UX principles, ensuring a user-friendly and immersive experience."
+                    bodyStyle="text-left"
+                    noline
+                    shadow
+                    cardStyle="md:relative lg:left-[10px] z-[2] shadow-xl"
+                />
+                <div class="w-full h-[24px] md:hidden"></div>
+                <Card 
+                    titleText="PEOPLE-FIRST"
+                    headingText="GOALS"
+                    cardStyle="md:mt-[62px]"
+                    noline
+                >
+                    <ul class="text-left list-item list-decimal leading-6 md:leading-8">
+                        <li>Create a people-friendly design.</li>
+                        <li>Use progressive disclosure to reduce clutter.</li>
+                        <li>Ensure the website is minimal, easy to use, and navigate.</li>
+                        <li>Use a dark theme.</li>
+                        <li>Provide an interactive and immersive experience</li>
+                        <li>Make the website accessible with Voice Over functionality.</li>
+                        <li>Establish a good information hierarchy.</li>
+                        <li>Design the website to meet the personality themes of Horror, Friendly, Minimal, and Entertaining by using the appropriate Font Style, Sound effects, Animations, transitions, Gifs, Jpegs, Videos, and Design Elements.</li>
+                        <li>Conduct user testing to ensure the website is user-friendly.</li>
+                    </ul>
+                </Card>
+            </div>
+        </div>
+
+        <div>
+
+        </div>
+    </section>
+
+
+    <!-- Stages -->
+    <div class="px-4 mt-16 md:mx-[50px] lg:mx-[80px] md:mt-[160px]">
+        <Heading text="Design<br>Process"/>
+        
+        <div class="w-full h-[48px]"></div>
+
+        <div class="md:hidden">
+                <ExpandableCard 
+                title="Research"
+                content="The research phase focused on identifying existing interactive websites on Awwwards.com and analyzing their user experience. The research revealed that most interactive websites were not user-friendly nor easy to use. These websites had complex navigation, unintuitive user interfaces, and required high cognitive effort from people. <br><br> The analysis also showed that people often abandoned these websites due to frustration and the inability to navigate them. Furthermore, users found it challenging to engage with the content due to poor user experience, leading to reduced retention rates. <br><br>Based on these findings, it was evident that there was a need for a people-friendly and easy-to-use interactive website."
+            />
+        
+            <ExpandableCard title="Ideate">
+                <p>
+                    The ideation phase focused on developing design concepts that addressed the shortcomings of existing interactive websites. 
+                    The goal was to create a website that provided an immersive horror experience while ensuring ease of use and user-friendliness. 
+                    <br><br>
+                    To achieve this, the following design concepts were developed: 
+                </p>
+                <ul class="list-disc list-outside">
+                    <li class="ml-5 mb-3">Simple Navigation: The website's navigation would be simple, intuitive, and easy to use. This would ensure users could quickly access the content they were interested in, reducing cognitive effort and frustration.</li>
+                    <li class="ml-5 mb-3">Interactive Elements: The website would incorporate interactive elements, such as animations and sound effects, to enhance the user's horror experience. These elements would be seamlessly integrated into the website's human interface, providing a seamless experience. </li>
+                    <li class="ml-5 mb-3">Responsive Design: The website would have a responsive design, allowing it to adapt to different screen sizes and devices. This would ensure people could access the website on any device, improving accessibility.</li>
+                    <li class="ml-5 mb-3">User Testing: The website would undergo user testing to identify and address any usability issues. This would ensure the website's user experience was optimized, reducing frustration and increasing retention rates.</li>
+                </ul>
+            </ExpandableCard>
+
+            <ExpandableCard title="Sketches & Design">
+                <p>
+                    The next step was to create wireframes to visualize the website's layout and structure which were done on paper. The wireframes showed the website's structure, layout, and functionality based on the research findings and aimed to provide a simple and easy-to-use interface for people. 
+                    <br><br>
+                    We made sure every screen of the website answered the following questions which will improve how intuitive the website is:
+                </p>
+                <ul class="list-disc list-outside">
+                    <li class="ml-5 mb-3">Where am I?</li>
+                    <li class="ml-5 mb-3">Where can I go?</li>
+                    <li class="ml-5 mb-3">What will I find when I get there?</li>
+                    <li class="ml-5 mb-3">How do I get there?</li>
+                    <li class="ml-5 mb-3">How do I leave here?</li>
+                </ul>
+                <p>
+                    How do I leave here? Figma was the preferred tool for the design of the website. 
+                    The Horror Vault website's overall design is scary and immersive with a black and red color scheme, clear typography, and easy navigation. 
+                    The use of sound effects, Gifs, and videos creates a creepy atmosphere for an interactive horror experience. 
+                    Progressive Disclosure was incorporated during the mobile design of the vault to reduce clutter.
+                </p>
+            </ExpandableCard>
+
+            <ExpandableCard 
+                title="Prototype"
+                content="The prototype was also designed using Figma.The prototype showed how the website would look and function. It included interactive elements such as buttons, menus, and links. The prototype was tested for usability by a group of users who provided feedback on its design and functionality. The feedback was used to refine the design and improve the user experience."
+            />
+
+            <ExpandableCard 
+                title="Development"
+                content="The development phase of the project involved creating a responsive design that would be accessible on different devices such as desktops, laptops, tablets, and mobile phones. The website was built using HTML, CSS, and JavaScript, and the Bootstrap framework was used to ensure the website was fully responsive. The developer used the latest web development technologies to ensure the website was optimized for speed, accessibility, and search engine optimization (SEO).<br><br> The website's interactive features were implemented using JavaScript, which included animations, hover effects, and pop-ups. The animations were used to add visual interest to the website and create a dynamic user experience. The hover effects were used to highlight interactive elements such as buttons and links, and the pop-ups were used to display additional information or content."
+            />
+
+            <ExpandableCard title="Testing and Feedback">
+                <p>To test the website's usability and functionality, we conducted a series of tests that included: </p>
+                <ul class="list-disc list-outside">
+                    <li class="ml-5 mb-3">Usability Testing: We invited a group of individuals who had different levels of expertise with interactive websites to test the website. Participants were asked to perform specific tasks on the website, and their interactions were recorded.</li>
+                    <li class="ml-5 mb-3">Focus Group: We invited a group of individuals who were interested in horror websites to provide feedback on the website's design, content, and overall experience. </li>
+                </ul>
+                <p>Results: Based on the testing and feedback we received, we found that the website performed well in terms of usability and user-friendliness. Participants were able to navigate the website easily and complete tasks without any difficulties.</p>
+            </ExpandableCard>
+
+            <ExpandableCard 
+                title="Launch & Post-Launch Testing"
+                content="After several iterations of development and testing, the website was ready to launch. The team ensured that the website was search engine optimized, and all the necessary SEO elements were incorporated into the website's design. The website was launched on a secure hosting platform, and all the necessary security features were implemented.<br><br> The post-launch testing phase will involve a survey that will be sent to a sample of users who have interacted with the website."
+            />
+        </div>
+
+        <div class="hidden md:block">
+            <Svg />
+        </div>
+    </div>
+
+    <!-- design a minimal -->
+    <section class="text-horror-secondary-color my-16 lg:mb-0 md:mt-[160px]">
+        <div class="mx-4 md:mx-[80px] md:flex">
+            <div class="md:w-[50%] xl:w-[60%]">
+                <h2 class="text-[24px] md:text-[56px] font-bold leading-[32px] md:leading-[60px] w-[60%] md:w-[80%]">Design a minimal, easy to navigate and <span class="text-horror-neutral-color md:underline">People-Friendly</span> interface.</h2>
+                <p class="text-[14px] opacity-50 mt-4">The overall design of the Horror Vault website is intended to be scary and immersive. The color scheme is black with red accents, with neutral colors of gray and white. The website has a consistent design throughout all pages with easy navigation. The typography is bold and clear, to make it easy for users to read. <br><br>The Horror Vault website is designed to provide an immersive and interactive horror experience for people. The black-themed design, as well as the use of sound effects, Gifs, and videos, will help to create a creepy atmosphere. The various sections of the site will offer a variety of horror-themed content, including a hover card quiz-like section named curses, serial-killer facts, scary stories, an unfinished murder mystery, would you rather, and a Spotify playlist for horror music.</p>
+            </div>
+            <div class="hidden md:inline-block w-[50%] xl:w-[40%] bg-center bg-contain bg-no-repeat bg-[url('/images/about/hero-design.png')] h-[500px]">
+
+            </div>
+        </div>
+       
+
+        <!-- Color palatte -->
+        <div class="p-4 md:px-[80px] md:py-[40px] my-[64px] md:mb-[0px] md:mt-[80px] bg-[#0D0D0D] bg-opacity-90 color-card-bg">
+            <h3 class="font-semibold md:text-[24px]">Color Palette</h3>
+            <div class="grid grid-cols-5 h-[200px] md:h-[400px] lg:h-[500px] mt-4 md:mt-[40px]">
+                <ColorCard 
+                    color="#000000"
+                    colorName="horror-Primary"
+                    colorNumber="01"
+                    cardStyle="bg-horror-primary-color"
+                />
+                <ColorCard 
+                    color="#E5322E"
+                    colorName="Accent"
+                    colorNumber="02"
+                    cardStyle="bg-horror-neutral-color"
+                />
+                <ColorCard 
+                    color="#215D1F"
+                    colorName="Complementary"
+                    colorNumber="03"
+                    cardStyle="bg-spotify-green"
+                />
+                <ColorCard 
+                    color="#FFFFFF"
+                    colorName="Neutral"
+                    colorNumber="04"
+                    cardStyle="bg-horror-secondary-color"
+                    dark
+                />
+                <ColorCard 
+                    color="#151515"
+                    colorName="Neutral"
+                    colorNumber="05"
+                    cardStyle="bg-horror-grade"
+                />
+            </div>
+        </div>
+
+        <!-- Mockup -->
+        <div class="p-4 md:py-[48px] md:px-[80px] my-[64px] md:mt-0 bg-[url('/images/about/mockup.jpg')] bg-center bg-cover bg-no-repeat h-[260px] w-full md:min-h-[500px] md:h-[80vh] xl:min-h-[700px] xl:h-[90vh]">
+            <h3 class="font-semibold md:text-[24px] ">Mockup</h3>
+        </div>
+
+        <!-- Screen Sketches and Notes -->
+        <div class="p-4 my-[64px] md:px-[80px]">
+            <h3 class="font-semibold mb-4 md:text-[24px] ">Screen, Sketches, & Notes</h3>
+            <div class="bg-[url('/images/about/sketches.png')] bg-center bg-contain bg-no-repeat h-[260px] w-full md:min-h-[500px] md:h-[80vh] xl:min-h-[700px] xl:h-[90vh]">
+            </div>
+        </div>
+
+         <!-- Typography -->
+         <div class="mx-4 md:px-[80px]">
+            <div class="p-4  md:py-[80px] lg:mb-0 border-y-[1px] border-y-horror-secondary-color border-opacity-50 ">
+                <h3 class="font-semibold mb-4 md:text-[24px]">Typography</h3>
+                <p class="opacity-50 ">The fonts used in this project are</p>
+
+                <div class="flex gap-3 md:gap-[48px] lg:gap-[104px] mt-[16px] text-[12px] md:text-[16px]">
+                    <ul class="flex flex-col gap-[16px] list-inside list-disc">
+                        <li>SF Pro Display</li>
+                        <li>SF Pro Text</li>
+                    </ul>
+
+                    <ul class="flex flex-col gap-[16px] list-inside list-disc">
+                        <li>Great Vibes</li>
+                        <li>Melted Monster</li>
+                    </ul>
+
+                    <ul class="flex flex-col gap-[16px] list-inside list-disc">
+                        <li>Bloody</li>
+                        <li>YouMurderer BB</li>
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="mx-4 md:px-[80px]">
+            <div class="p-4  md:py-[80px] lg:mb-0 border-y-[1px] border-y-horror-secondary-color border-opacity-50 ">
+                <h3 class="font-semibold mb-4 md:text-[24px]">Tools</h3>
+                <p class="opacity-50 uppercase tracking-[5px]">We Shape Our <span class="text-horror-neutral-color">Tools</span> To Shape Us</p>
+
+                <div class="flex md:justify-between flex-wrap gap-4 md:gap-8 mt-[30px] lg:mt-[48px]">
+                    <div class="w-[60px] h-[20px] md:w-[121.25px] aspect-auto  bg-[url('/images/about/tool-astro.png')] bg-left bg-contain bg-no-repeat"></div>
+                    <div class="w-[80px] h-[20px] md:w-[214.86px] aspect-auto  bg-[url('/images/about/tool-tailwind.png')] bg-left bg-contain bg-no-repeat"></div>
+                    <div class="w-[80px] h-[20px] md:w-[115.38px] aspect-auto  bg-[url('/images/about/tool-notion.png')] bg-left bg-contain bg-no-repeat"></div>
+                    <div class="w-[80px] h-[20px] md:w-[143.86px] aspect-auto  bg-[url('/images/about/tool-figma.png')] bg-left bg-contain bg-no-repeat"></div>
+                    <div class="w-[80px] h-[20px] md:w-[143.86px] aspect-auto  bg-[url('/images/about/tool-youtube.png')] bg-left bg-contain bg-no-repeat"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet THE TEAM -->
+    <section class="text-horror-secondary-color my-20 px-4 md:mx-[80px]">
+        <div class="">
+            <h2 class="text-[24px] text-center sm:text-left md:text-[56px] font-bold leading-[32px] md:leading-[70px]">Meet the <br class="hidden md:inline-block"> Horror Vault <span class="text-horror-neutral-color md:underline">Team</span></h2>
+        </div>
+        <div class="flex flex-col justify-between items-center lg:gap-[50px] ">
+            <div class="w-[80%] lg:w-[80%] grid grid-cols-1 sm:grid-cols-3 gap-[60px] mt-4  pb-6 pt-6 md:pb-[80px] md:pt-[80px]">
+                <Portfolio 
+                    name="Kamil Oseni"
+                    title="UX Researcher, Human Interface & Interaction Designer"
+                    body=" A brilliant designer and a wicked genius, CrackLabs lead designer paved the way in creating an immersive and user-friendly project with dynamic interactions, tailored to meet people’s needs. Thanks to his expertise, we delivered a flawless experience that looks great and works even better! "
+                    url="bg-[url('/images/about/KamilArt.jpg')]"
+                />
+
+                <Portfolio 
+                    name="Victor Ogbonnah"
+                    title="Frontend Developer"
+                    body="Our frontend developer who brought the Horror Vault project to life with exceptional frontend development skills. Thanks to his hard work, we now have a stunning website that exceeds expectations!"
+                    url="bg-[url('/images/victor.png')]"
+                />
+
+                <Portfolio 
+                    name="Don-Pedro Kizito"
+                    title="Project Manager"
+                    body="A multi-disciplinary designer and developer, specialized in crafting beautiful, user-friendly interfaces and seamless digital experiences. His expertise in UI/UX design, web development, HTML, CSS, JavaScript, and other modern web technologies allowed him to prioritize productivity and ensure that the project was completed on time."
+                    url="bg-[url('/images/kizito.png')]"
+                />
+            </div>
+        </div>
+
+        <div class="md:mt-[80px]">
+            <h3 class="font-semibold mb-4 md:mb-[56px] text-[24px]">Pre-Launch Feedback</h3>
+
+            <div class="md:hidden">
+                <ExpandableCard 
+                    title="Petra Okelola"
+                    role="UI/UX Designer & Content Creator"
+                >
+                    <ul class="list-item list-disc mx-4 leading-[24px] mt-4">
+                        <li>I would love if blood were dripping down the red button. The copy that leads to the case study / about should be more intuitive.</li>
+                        <li class="my-2">The playlist of the day is my favorite section of the website, the design looks so clean</li>
+                        <li>The copy that leads to the case study / about should be more intuitive.</li>
+                    </ul>
+                </ExpandableCard>
+
+                <ExpandableCard 
+                    title="Collins"
+                    role="Frontend Developer"
+                >
+                    <ul class="list-item list-disc mx-4 leading-[24px] mt-4">
+                        <li>Love the interactions, especially on the about page where the card shrinks to reveal the handoff documents.</li>
+                        <li class="mt-2">I can’t tell if they’re trying to launch a movie premiere or if they’re telling you a story about a horror event.</li>
+                    </ul>
+                </ExpandableCard>
+
+                <ExpandableCard 
+                    title="Michael Fajemilehin"
+                    role="Product Analyst"
+                >
+                    <ul class="list-item list-disc mx-4 leading-[24px] mt-4">
+                        <li>The sound effects are amazing, that’s what attracted me to the site.</li>
+                        <li class="mt-2">The layout is also very straight forward and simple to use, each section having its own entertainment. Really great work!</li>
+                    </ul>
+                </ExpandableCard>
+            </div>
+
+            <div class="hidden md:flex justify-center overflow-auto gap-[24px] lg:gap-[40px py-4 feedback">
+                <div class="w-[380px] aspect-square bg-horror-grade px-6 pt-12 flex-shrink-0">
+                    <h4 class="text-[24px] font-bold">Petra Okelola</h4>
+                    <p class="text-[12px] text-horror-neutral-color font-bold my-2">UI/UX Designer & Content Creator</p>
+                    <hr>
+                    <ul class="opacity-50 list-item list-disc mx-4 leading-[24px] mt-4">
+                        <li>I would love if blood were dripping down the red button. The copy that leads to the case study / about should be more intuitive.</li>
+                        <li class="my-2">The playlist of the day is my favorite section of the website, the design looks so clean</li>
+                        <li>The copy that leads to the case study / about should be more intuitive.</li>
+                    </ul>
+                    <!-- <p class="opacity-50 my-4">We noticed that many interactive websites with immersive experiences fail to meet standard UX principles, making them less user-friendly despite having impressive frontend development.</p> -->
+                </div>
+
+                <div class="w-[380px] aspect-square bg-horror-grade px-6 pt-12 flex-shrink-0">
+                    <h4 class="text-[24px] font-bold">Collins</h4>
+                    <p class="text-[12px] text-horror-neutral-color font-bold my-2">Frontend Developer</p>
+                    <hr>
+                    <ul class="opacity-50 list-item list-disc mx-4 leading-[24px] mt-4">
+                        <li>Love the interactions, especially on the about page where the card shrinks to reveal the handoff documents.</li>
+                        <li class="mt-2">I can’t tell if they’re trying to launch a movie premiere or if they’re telling you a story about a horror event.</li>
+                    </ul>
+                </div>
+
+                <div class="w-[380px] aspect-square bg-horror-grade px-6 pt-12 flex-shrink-0">
+                    <h4 class="text-[24px] font-bold">Michael Fajemilehin</h4>
+                    <p class="text-[12px] text-horror-neutral-color font-bold my-2">Product Analyst</p>
+                    <hr>
+                    <ul class="opacity-50 list-item list-disc mx-4 leading-[24px] mt-4">
+                        <li>The sound effects are amazing, that’s what attracted me to the site.</li>
+                        <li class="mt-2">The layout is also very straight forward and simple to use, each section having its own entertainment. Really great work!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="text-horror-secondary-color px-4 md:mx-[80px]">
+        <div class="lg:flex justify-center relative">
+            <div class="relative bg-horror-grade pt-6 px-6 lg:flex lg:items-center lg:pr-[60px] xl:pr-[80px] lg:pl-[80px] xl:pl-[132px] lg:pt-[72px] xl:pt-[122px] lg:pb-[48px] lg:gap-[32px] max-w-[1066px]"> 
+                <div class="lg:w-[50%]">
+                    <h2 class="text-[24px] font-bold leading-[32px] mb-6">You are a <span class="text-horror-neutral-color underline">message</span> away from getting the best service ;)</h2>
+                    <p class="text-[14px] opacity-50 mb-4">We’re always happy to hear from you! Get in touch with us anytime to work with us. Simply use the form or connect with us on social media, email or by phone.</p>
+                    <p class="text-[14px] mb-6"><span class="font-bold">Email</span> <br> <span class="opacity-50">inquiries@Cracklabs.io</span></p>
+                </div>
+
+                <form class="text-[11px] flex flex-col gap-4 pb-[18px] lg:w-[50%] shadow-[black]/[0.3] shadow-[0px_2px_5px] lg:px-[30px] lg:py-[24px]" action="/" method="post">
+                    <p class="text-[12px] md:text-[24px] leading-4 text-center font-bold mb-5">Contact form</p>
+                    <input class="bg-transparent outline-none pb-2 border-b-[1px] border-b-horror-secondary-color border-opacity-50 focus:border-opacity-100" name="Name" type="text" placeholder="Name">
+                    <input class="bg-transparent outline-none pb-2 border-b-[1px] border-b-horror-secondary-color border-opacity-50 focus:border-opacity-100" name="Name" type="email" placeholder="Email">
+                    <label class="opacity-50" for="message">Message</label>
+                    <textarea 
+                        id="message" 
+                        name="Message" 
+                        class="outline-none text-horror-primary-color h-[109px]"
+                    ></textarea>
+                    <div class="self-center">
+                        <Button>SEND MESSAGE</Button>
+                    </div>
+                </form>
+                <div class="hidden lg:flex lg:absolute left-0 top-0 items-center h-full">
+                    <IconDeck
+                        width="15px"
+                        contStyle="lg:flex-col  bg-transparent"
+                        urls={[
+                            '/images/icons/icon-twitter.png',
+                            '/images/icons/icon-insta.png',
+                            '/images/icons/icon-email.png',
+                            '/images/icons/icon-door.png'
+                        ]} 
+                    />
+                </div>
+                <div class="absolute top-0 left-0 hidden lg:flex justify-center text-center w-full">
+                    <IconBox text='CRACKLABS' url="/images/icons/icon-logo.png" contStyle="bg-transparent"/>
+                </div>
+            </div>
+            <IconDeck
+                width="20px"
+                contStyle="flex flex-row justify-center border-[2px] border-grade lg:hidden"
+                urls={[
+                    '/images/icons/icon-twitter.png',
+                    '/images/icons/icon-insta.png',
+                    '/images/icons/icon-email.png',
+                    '/images/icons/icon-door.png'
+                ]} 
+            />
+           
+        </div>
+        
+    </section>
+    </div>
+
+    <div class="text-white">
+        <Nexter
+            leftText="Pencil Hoops with NBA & ESPN"
+            leftUrl="/pencil"
+            rightText="Crack Headphones"
+            rightUrl="/headphones"
+        />
+    </div>
+
+    <Footer
+        footerStyle="bg-grade md:bg-transparent relative"
+    />
+</Layout>
+<script>
+    let heroArrow = document.querySelector('.hero-arrow') as HTMLElement
+    let overview = document.querySelector('.hero-section') as HTMLElement
+    let overviewTop = overview.getBoundingClientRect().bottom
+    let heroTop = heroArrow.getBoundingClientRect().top
+
+    // heroArrow.onclick = () => {
+    //     window.scrollTo({top:overviewTop, behavior:'smooth'})
+    // }
+
+    
+</script>
+<style>
+    html, body{
+        scroll-behavior: smooth;
+    }
+
+    .feedback::-webkit-scrollbar {
+        scrollbar-width: thin;
+        /* width: 4px;
+        height: 4px; */
+    }
+
+    .feedback::-webkit-scrollbar-thumb {
+        background-color: #151515;
+        opacity: 0.5;
+        border-radius: 3px;
+    }
+</style>

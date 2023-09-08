@@ -1,0 +1,46 @@
+---
+    import Card2 from "@compo/Card2.astro";
+    import pageData from "@data/crackHeadphones";
+    import Section from "@compo/Section.astro";
+    import Heading from "@compo/typography/Heading.astro";
+    import PersonaStep from "./PersonaStep.astro";
+    import PersonaJohn from './PersonaJohn.astro';
+---
+<Section style="lg:pb-[80px] md:pb-[80px]">
+    <Heading>Understanding <span class="inline-block relative text-my-red"><hr class="absolute left-0 right-0 -bottom-[5px] md:-bottom-[10px] h-[3px] md:h-[5px] bg-my-red border-my-red"> People</span></Heading>
+    <p>
+        Throughout the duration of the project, we utilized both primary and secondary research methodologies, incorporating both <b>qualitative</b> and <b>quantitative</b> data. 
+        We conducted primary research through direct interviews and surveys to gather insights into user pain points and identify which features should be incorporated into the headphones.<br/><br/>
+        However, since this primary research was geographically limited to our immediate surroundings, we relied mostly on secondary research to obtain the necessary data for this project.
+    </p>
+</Section>
+
+<Section style="lg:pt-0 md:pt-0">
+    <Heading Level="h2" style="md:mb-[40px]">Pain Points</Heading>
+
+    <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 mt-8 gap-[10%] md:gap-[5%]">
+        {pageData.painpoints.map((item)=> 
+            <Card2
+                url={item.url}
+                imageStyle="md:w-[104px] md:h-[104px]"
+                HeadingType='h4'
+                headingText={item.title} 
+                headingStyle="mb-[8px] mt-[40px] text-[11px] md:text-[17px] text-my-red tracking-[0.11px] leading-4 font-medium"  
+                content={item.content}                        
+                contentStyle="text-[10px] md:text-[17px]"     
+                align='left' 
+                number={item.number}   
+            />
+        )}
+    </div>
+</Section>
+
+<Section style="lg:pt-0 md:pt-0">
+    <Heading Level="h2" style="md:mb-[40px] mb-[24px]">Selected Personas</Heading>
+
+    <div class="flex flex-col items-center justify-center">
+        <PersonaStep />
+        <div class="h-[56px] w-full"></div>
+        <PersonaJohn />
+    </div>
+</Section>

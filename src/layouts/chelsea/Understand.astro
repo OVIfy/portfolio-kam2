@@ -1,0 +1,123 @@
+---
+    import Card from "../../components/Card.astro";
+    // import pageData from "../data/crackHeadphones";
+    import Section from "../../components/Section.astro";
+    import Heading from "../../components/typography/Heading.astro";
+    import Quote from "../../components/Quote.astro";
+---
+<Section style="lg:pb-[80px] md:pb-[80px]">
+    <Heading>Understanding <span class="inline-block relative text-my-red"><hr class="absolute left-0 right-0 -bottom-[5px] md:-bottom-[10px] h-[3px] md:h-[5px] bg-my-red border-my-red"> People</span></Heading>
+    <p>
+        To obtain comprehensive information for this project, a combination of <b>primary</b> and <b>secondary research methods</b> were utilized. 
+        Primary research involved conducting direct interviews and surveys with individuals to gain a deeper understanding of their needs and pain points. 
+        However, due to geographical limitations, additional data was necessary. To address this, secondary research methods, such as data scraping from <b>Google Play store and the Apple App Store</b>, were employed. 
+        Both qualitative and quantitative data were utilized throughout the course of the research, ensuring a well-rounded analysis.
+    </p>
+</Section>
+
+<Section style="lg:pt-0 md:pt-0">
+    <Heading Level="h2">Data Extraction</Heading>
+
+    <section>
+        <Heading Level="h3" style="my-[20px] md:my-[40px]">Process</Heading>
+
+        <ul class="list-disc pl-8">
+            <li>Installation & Importation of Libraries</li>
+            <li>Data Scraping</li>
+            <li>Sentimental Analysis</li>
+            <li>Exploratory Data Analysis</li>
+        </ul>
+    </section>
+
+    <section>
+        <Heading Level="h3" style="my-[20px] md:my-[40px]">Libraries Used</Heading>
+
+        <div class="flex gap-2 md:gap-8">
+            <ul class="list-disc pl-8">
+                <li>Tensorflow</li>
+                <li>Transformers</li>
+                <li>Plotly Express</li>
+                <li>Numpy</li>
+                <li>Pandas</li>
+                <li>Json</li>
+            </ul>
+            <ul class="list-disc pl-8">
+                <li>Google Play Scraper</li>
+                <li>App Store Scraper</li>
+                <li>Torch Torchvision Torch Audio</li>
+                <li>Pyyaml</li>
+                <li>Matplot</li>
+                <li>Pipeline</li>
+            </ul>
+        </div>
+    </section>
+
+    <p class="my-[20px] md:my-[40px]">
+        In order to accurately represent the user population of the "Chelsea FC - The 5th Stand" app, data was collected from both the Google Play Store and the App Store. 
+        Python was chosen as the extraction tool due to its extensive data manipulation and extraction libraries. The open-source packages "google_play_scraper" and "app_store_scraper" 
+        were utilized for data scraping. To clean and organize the data, the Pandas library, built on top of Numpy, was used. A sentiment analysis was also conducted to distinguish between 
+        positive and negative reviews, 
+        utilizing the transformers library. The resulting dataset was then organized and prepared for analysis.
+    </p>
+
+    <img class="mb-[20px] md:mb-[40px]" src="/images/chelsea/code.png" alt="snippet of python code that was used for scrapping"/>
+
+    <a class="font-bold underline text-purple-700" href="https://drive.google.com/drive/folders/1SrhLMo9nMYnLvJWk_X8OrypVlINOMgXx?usp=sharing&pli=1">View entire Data Collection Process here</a>
+
+    <section>
+        <Heading Level="h3" style="my-[20px] md:my-[40px]">User Reviews</Heading>
+
+        <p>
+            The data extraction process allowed us to gather a large number of user reviews, providing valuable insights and we found that a
+            common request among customers was the addition of a live streaming feature for football matches, we also found out that 
+            Fans wanted to feel more at home and connected to their favorite club. This feedback was taken into consideration and what 
+            better way to make them feel at home and enjoy a live match than the introduction of a virtual live stream feature, 
+            which allows the fans have the experience of a live match at the Stamford Bridge even being far away.<br><br>
+            We extracted <b class="text-white font-bold">46,245</b> reviews from both stores for this document. Of these, the following reviews were particularly relevant:
+        </p>
+
+        <div class="text-center py-[56px]">
+        <div class="inline-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:place-items-center gap-[40px] text-left">
+            <Quote 
+                quote={`“I have been a Chelsea fan since I was born, passed down from my dad to me, 
+                    so seeing all news about CFC has been great and exciting, 
+                    I never miss any game and I wish that one day 
+                    I would be able to go to Stamford bridge to watch a live Chelsea match. 
+                    Keep winning blues because you always make me proud to be a Chelsea fan.”`}
+                author="Aruna David"
+            />
+            <Quote 
+                quote={`"This App has made me feel very much like I'm part of the team. 
+                A Blue i have always been, I can feel the Stamford Bridge atmosphere from here. 
+                I love Chelsea FC and the App, in a way puts me In London..."`}
+                author="Wilson Ndlovu"
+            />
+            <Quote 
+                quote={`“Its been a wonderful experience having this app on my phone, it makes me closer to Stamford bridge though far away.”`}
+                author="Festus Iwara"
+            />
+            <Quote 
+                quote={`“The 5th stand brings me so close to Stamford bridge right here even in Nigeria I feel like am in London watching. 
+                        Thank you for a great support and job you do.”`}
+                author="Odole Oladipupo"
+            />
+            <Quote 
+                quote={`“I’m American and being able to listen to the home commentary out of Stamford bridge 
+                        is a real treat as i watch/stream the game. great stuff”`}
+                author="geo andrew 97"
+            />
+            <Quote 
+                quote={`"I live very far from Stamford Bridge, - (Los Angeles), 
+                        but I grew up in SW19, and am a lifetime Chelsea fan. 
+                        This is a great way to stay in touch with events and interviews."`}
+                author="TheNewSilb"
+            />
+        </div>
+        </div>
+    </section>
+
+    <p>
+        There are so many Chelsea fans who would love to be able to watch the team play live, even if they are far away from Stamford Bridge. 
+        This got us thinking - why not bring Stamford Bridge to them and make them feel at home no matter where they are.
+    </p>
+</Section>

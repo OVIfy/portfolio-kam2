@@ -1,0 +1,10 @@
+---
+const {url, videoUrl} = Astro.props
+---
+<div class="w-[90vw] aspect-video max-w-[731px] flex bg-yellow-300">
+    <div style={`background-image: url(${url});`} class="h-full basis-2/5 bg-center bg-contain"></div>
+    <div class="h-full w-3/5 bg-black flex items-center justify-center">
+    {videoUrl &&  <video src={videoUrl} controls ></video>}
+		<div class="inline-block w-[15%] aspect-square hover:-rotate-[20deg] bg-[url('/images/icons/icon-youtube.svg')] bg-contain bg-no-repeat transition-all hover:scale-[1.1] duration-500 transform hover:cursor-pointer"></div>
+    </div>
+</div>

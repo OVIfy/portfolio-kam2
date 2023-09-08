@@ -1,0 +1,141 @@
+---
+const {control, data, items} = Astro.props
+---
+<astro-dual-card data-items={JSON.stringify(items)} class="w-full">
+<section class="border-[1px] border-secondary-color border-opacity-30 w-full h-full sm:border-0">
+    <div class="w-full h-full flex flex-col sm:grid sm:grid-cols-2 sm:pl-3 sm:pr-3 sm:pt-8 overflow-hidden dual-card">
+        <div class="relative sm:left-3 sm:bottom-8 z-[2] hidden sm:block justify-items-end overflow-hidden bg-primary-color">
+            <slot name="left" />
+            {control &&
+                <div class="w-full h-full absolute top-0 left-0 flex items-center">
+                    <div class="w-full h-[50px] flex justify-between">
+                        <div data-dual-card-id={data && data.id} class="transition-all dBtn-left h-full w-[20%] bg-center bg-[length:10px] bg-primary-color hover:bg-gray-300 bg-no-repeat bg-[url('/images/icons/icon-left.png')]"></div>
+                        <div data-dual-card-id={data && data.id} class="transition-all dBtn-right h-full w-[20%] bg-center bg-[length:10px] bg-primary-color hover:bg-gray-300 bg-no-repeat bg-[url('/images/icons/icon-right.png')]"></div>
+                    </div>
+                </div>
+            } <!--the control section-->
+        </div>
+        <div class="sm:hidden overflow-hidden">
+            <slot name="fallback" />
+        </div>
+        <div class="relative sm:right-3 overflow-hidden">
+            <slot name="right" />
+            {control &&
+                <div class="w-full h-full absolute top-0 left-0 flex items-center sm:hidden">
+                    <div class="w-full h-[50px] flex justify-between">
+                        <div data-dual-card-id={data && data.id} class="transition-all dBtn-left h-full w-[25px] bg-center bg-[length:10px] bg-primary-color hover:bg-gray-300 bg-no-repeat bg-[url('/images/icons/icon-left.png')]"></div>
+                        <div data-dual-card-id={data && data.id} class="transition-all dBtn-right h-full w-[25px] bg-center bg-[length:10px] bg-primary-color hover:bg-gray-300 bg-no-repeat bg-[url('/images/icons/icon-right.png')]"></div>
+                    </div>
+                </div>
+            } <!--the control section-->
+        </div>
+    </div>
+</section>
+</astro-dual-card>
+<script>
+
+    type Card = {
+        title : string
+        heading : string
+        body : string
+        button : string
+        imsge : string
+        imgText : string
+        imgUrl : string
+    }
+
+    class AstroDualCard extends HTMLElement{
+        index = 0
+        titl : HTMLElement
+        heading : HTMLElement
+        body : HTMLElement
+        button : HTMLElement
+        image : HTMLElement
+        imgText : HTMLElement
+        data : Array<Card>
+        rightBtn : NodeListOf<HTMLElement>
+        leftBtn : NodeListOf<HTMLElement>
+        fallBack : HTMLElement
+
+        constructor(){
+            super();
+
+            this.data = this.dataset.items && JSON.parse(this.dataset.items) //array of items to loop through
+            this.rightBtn = this.querySelectorAll('.dBtn-right') //right button of this instance of the element
+            this.leftBtn = this.querySelectorAll('.dBtn-left') //left button of this instance of the element
+            this.titl = this.querySelector('.title') 
+            this.heading = this.querySelector('.heading') 
+            this.body = this.querySelector('.body')
+            this.button = this.querySelector('.button') 
+            this.image = this.querySelector('.image')
+            this.imgText = this.querySelector('.text') 
+            this.fallBack = this.querySelector('.fallback')
+            
+            this.rightBtn.forEach(rightBtn => rightBtn.onclick = this.right.bind(this))
+            this.leftBtn.forEach(leftBtn => leftBtn.onclick = this.left.bind(this))
+         
+            this.data && this.initializeAll()
+            // console.log(title, heading, body, button, image, imageText)
+        }
+
+        initializeAll(){
+            //animate the head, body and title
+            this.body.animate([{opacity:'0.3'},{opacity:'1'}], {duration:650, easing:'ease-in-out'})
+            this.titl.animate([{opacity:'0.3'},{opacity:'1'}], {duration:650, easing:'ease-in-out'})
+            this.heading.animate([{opacity:'0.3'},{opacity:'1'}], {duration:650, easing:'ease-in-out'})
+            this.image.animate([{opacity:'0.3'},{opacity:'1'}], {duration:650, easing:'ease-in-out'})
+
+            const whereButtonWasAt = this.button.getBoundingClientRect().top
+            const buttonOldWidthAndHeight = [this.button.getBoundingClientRect().width, this.button.getBoundingClientRect().height]
+
+            this.titl.innerText = this.data[this.index].title
+            this.heading.innerText = this.data[this.index].heading
+            this.body.innerHTML = this.data[this.index].body
+            this.button.innerText = this.data[this.index].button
+            this.image.style.backgroundImage = `url('${this.data[this.index].imgUrl}')`
+            this.imgText.innerHTML = this.data[this.index].imgText
+            this.fallBack.innerHTML = this.data[this.index].imgText
+
+            const whereButtonIsAt = this.button.getBoundingClientRect().top
+            const buttonNewWidthAndHeight = [this.button.getBoundingClientRect().width, this.button.getBoundingClientRect().height]
+
+            let diff = whereButtonWasAt - whereButtonIsAt
+            let sWidth = buttonOldWidthAndHeight[0] / buttonNewWidthAndHeight[0]
+            let hWidth = buttonOldWidthAndHeight[1] / buttonNewWidthAndHeight[1]
+
+            let transOri
+            if(window.matchMedia('(min-width: 640px)').matches)
+                transOri = 'top left'
+            if(window.matchMedia('(max-width: 639px)').matches)
+                transOri = 'top center'
+
+            this.button.animate([
+                {transformOrigin:transOri, transform : `translateY(${diff}px) scale(${sWidth}, ${hWidth})`, opacity : '0.5'},
+                {transformOrigin:transOri, transform : `none`, opacity : '1'}
+            ], {duration : 650, easing:'ease-in-out'})
+
+        }
+
+        right(){
+            if(this.index == this.data.length - 1)
+                this.index = 0
+            else
+                this.index++
+            
+            //tr
+            
+            this.initializeAll()
+        }
+
+        left(){
+            if(this.index == 0)
+                this.index = this.data.length - 1
+            else
+                this.index--
+
+            this.initializeAll()
+        }
+    }
+
+    customElements.define('astro-dual-card', AstroDualCard)
+</script>

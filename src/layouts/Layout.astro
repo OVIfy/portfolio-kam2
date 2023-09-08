@@ -1,39 +1,109 @@
---- 
-interface Props {
+---
+export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+import {twMerge} from 'tailwind-merge'
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class={twMerge("bg-black")}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Great+Vibes&family=Mrs+Saint+Delafield&family=Petit+Formal+Script&family=Sofia&family=Dancing+Script&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Great+Vibes&family=Mrs+Saint+Delafield&family=Petit+Formal+Script&family=Sofia&family=Dancing+Script&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="text-white font-SIFU" ondragstart="return false;" ondrop="return false;">
 		<slot />
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151A;
-		background-size: 224px;
+		background-color: #F6F6F6;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-BoldG3.otf') format('opentype');
+		font-weight: 700;
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-BoldG3.otf') format('opentype');
+		font-weight: 700;
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-LightItalic.otf') format('opentype');
+		font-weight: 300;
+		font-style: italic
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-Light.otf') format('opentype');
+		font-weight: 300;
+		font-style: normal;
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-Semibold.otf') format('opentype');
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-Medium.otf') format('opentype');
+		font-weight: 500;
+		font-style: normal;
+	}
+
+	@font-face{
+		font-family: "bilal";
+		src: url('/fonts/Bilal.otf') format('opentype');
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	@font-face{
+		font-family: "bilal";
+		src: url('/fonts/Bilal.otf') format('opentype');
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	@font-face{
+		font-family: "cookie";
+		src: url('/fonts/Cookie.ttf') format('truetype');
+		font-weight:500;
+		font-style: normal;
+	}
+
+	@font-face{
+		font-family: "bloody";
+		src: url('/fonts/BLOODY.TTF') format('truetype');
+		font-weight:700;
 	}
 </style>

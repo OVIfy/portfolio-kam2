@@ -1,0 +1,114 @@
+---
+import IconDeck from "./IconDeck.astro";
+const {index} = Astro.props
+---
+<header class="fixed top-0 left-0 w-full z-[20] border-b-[1px] border-b-horror-neutral-color border-opacity-50">
+    <div class=" z-[50] bg-horror-primary-color text-horror-secondary-color flex justify-center sm:justify-between relative pt-8 sm:p-2 pb-2 lg:px-[74px]">
+        <div class="sm:hidden open-nav-btn mouse-change hover:cursor-pointer w-[24px] h-[16px] absolute left-4 bottom-4 bg-[url('/images/icons/icon-nav-open.svg')]"></div>
+        <div class="flex items-center gap-2">
+            <div class="w-[25px] h-[25px] bg-[url('/images/fire.gif')] bg-center bg-contain bg-black bg-blend-hard-light sm:w-[85px] sm:h-[92px]"></div>
+            <h1 class="font-bloody text-[14px] sm:text-[24px] leading-[16px]">HORROR VAULT</h1>
+        </div>
+        <ul class="sm:flex items-center hidden gap-8 md:gap-16">
+            <li><a href="https://horror-vault.netlify.app/" target="_blank" class:list={["desk-link transition-all duration-700 hover:cursor-pointer hover:text-horror-neutral-color font-bold", index == 0 && "text-horror-neutral-color"]}>Home</a></li>
+            <li><a href="#" class:list={["desk-link transition-all duration-700 hover:cursor-pointer hover:text-horror-neutral-color font-bold", index == 1 && "text-horror-neutral-color"]}>About</a></li>
+            <li><a href="#contact" class:list={["text-horror-secondary-color desk-link transition-all duration-700 hover:cursor-pointer  font-bold bg-horror-neutral-color rounded-t-[8px] rounded-bl-[8px] py-2 px-4 ", index == 2 && "text-horror-neutral-color"]}>Contact Us</a></li>
+        </ul>
+
+        <!-- Mobile Menu -->
+        <nav class="md:hidden mob-nav hide-nav transform absolute left-0 top-0 pl-4 pt-[68px] pb-[33px] pr-8 bg-horror-primary-color z-50 rounded-r-[40px] shadow-[2px_2px_10px] shadow-horror-secondary-color/[0.2]">
+           <!-- first part -->
+           <div class="flex justify-between items-center">
+                <div class="w-[59px] h-[64px] bg-[url('/images/fire.gif')] bg-cover bg-no-repeat bg-[center_left_-15px] bg-black bg-blend-hard-light "></div>
+                <div class="close-nav-btn mouse-change hover:cursor-pointer w-[24px] h-[16px] bg-center bg-no-repeat bg-[url('/images/icons/icon-nav-close.svg')]"></div>
+           </div>
+
+           <!-- second part -->
+           <ul class="mt-[41px] mb-[41px] text-[16px] font-bold">
+                <li class="group"><a href="/" class:list={["transition-all duration-700 flex items-center group mob-link group-hover:text-horror-neutral-color", index == 0 && "text-horror-neutral-color"]}>Home <span class:list={["ml-2 transition-all duration-700 inline-block h-[5px] w-[5px] group-hover:bg-horror-neutral-color", index == 0 && "bg-horror-neutral-color"]}></span></a></li>
+                <li class="my-[40px] group"><a href="/about" class:list={["transition-all duration-700 flex items-center group mob-link group-hover:text-horror-neutral-color", index == 1 && "text-horror-neutral-color"]} >About <span class:list={["ml-2 transition-all duration-700 inline-block h-[5px] w-[5px] group-hover:bg-horror-neutral-color", index == 1 && "bg-horror-neutral-color"]}></span></a></li>
+                <li class="group"><a href="/about/#contact" class:list={["transition-all duration-700 flex items-center group mob-link group-hover:text-horror-neutral-color", index == 2 && "text-horror-neutral-color"]}>Get in touch  <span class:list={["ml-2 transition-all duration-700 inline-block h-[5px] w-[5px] group-hover:bg-horror-neutral-color", index == 2 && "bg-horror-neutral-color"]}></span></a></li>
+           </ul>
+
+           <!-- third part -->
+           <IconDeck
+			urls={[
+				'/images/icons/icon-twitter.png',
+				'/images/icons/icon-insta.png',
+				'/images/icons/icon-email.png',
+				'/images/icons/icon-door.png'
+			]} 
+            width="12px"
+            contStyle="flex-row p-2"
+		/>
+        </nav>
+    </div>
+</header>
+<style>
+    .hide-nav{
+        transform: translateX(-300px);
+        animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+</style>
+<script>
+    let openNav = document.querySelector('.open-nav-btn') as HTMLElement
+    let closeNav = document.querySelector('.close-nav-btn') as HTMLElement
+    let nav = document.querySelector('.mob-nav') as HTMLElement
+    let mobLinks = document.querySelectorAll('.mob-link') as NodeListOf<HTMLElement>
+    let deskLinks = document.querySelectorAll('.desk-link') as NodeListOf<HTMLElement>
+
+
+
+    openNav.addEventListener('click',()=>{
+        nav.animate([{transform : 'translateX(0px)'}], {duration : 1000, fill:'forwards', easing : 'cubic-bezier(1, 0.6, 0.2, 1)'})
+    
+    })
+    closeNav.addEventListener('click',()=>{
+        nav.animate([{transform : 'translateX(-300px)'}], {duration : 1000, fill:'forwards', easing : 'cubic-bezier(1, 0.2, 0.6, 1)'})
+    
+    })
+
+//     mobLinks.forEach((link, i) => {
+//         if(window.location.href.endsWith(link.getAttribute('href')) || window.location.href.endsWith(link.getAttribute('href') + '/'))
+//         {
+//                link.classList.add('text-horror-neutral-color')
+//                link.firstElementChild.classList.add('bg-horror-neutral-color')
+//         }
+//     })
+
+//     deskLinks.forEach((link, i) => {
+        
+//         if(window.location.href.endsWith(link.getAttribute('href')) || window.location.href.endsWith(link.getAttribute('href') + '/'))
+//            { link.classList.add('text-horror-neutral-color')
+//              console.log(window.location.href)
+// }
+//     })
+
+    nav.onclick = (e) => e.stopPropagation()
+
+    document.onclick = (e) => {
+        if(e.target !== openNav){
+            nav.animate([{transform : 'translateX(-300px)'}], {duration : 1000, fill:'forwards', easing : 'cubic-bezier(1, 0.2, 0.6, 1)'})
+        
+        }
+    }
+
+    console.log(window.location.href)
+
+    // let scrollOldPos = window.screenY
+    // let scrollCount = 0
+
+    // window.addEventListener('scroll',(e)=>{
+    //     let header = document.querySelector('header')
+
+    //     if(window.scrollY > (scrollOldPos + 200)){
+    //         header.animate([{transform:'translateY(-200px)'}],{duration:500,fill:'forwards'})
+    //         scrollOldPos = window.scrollY
+    //     }
+
+    //     if(window.scrollY < (scrollOldPos - 200)){
+    //         header.animate([{transform:'translateY(0px)'}],{duration:500,fill:'forwards'})
+    //         scrollOldPos = window.scrollY
+    //     }
+    // })
+</script>
