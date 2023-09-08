@@ -5,7 +5,8 @@ type slide = {
 type SlideParent = {
     title : string,
     base : string[],
-    slides : slide[]
+    slides : slide[],
+    link : string[]
 }
 
 const slides : SlideParent[] = [
@@ -19,7 +20,8 @@ const slides : SlideParent[] = [
             {"src" : "/images/slides/4.jpg"},
             {"src" : "/images/slides/5.jpg"},
             {"src" : "/images/slides/6.jpg"},
-        ]
+        ],
+        link : ["/pencil", "https://pencil-hoops.netlify.app/"]
     },
     {
         title : 'Horror Vault <br> with <span class="text-my-green">Spotify</span>',
@@ -30,7 +32,8 @@ const slides : SlideParent[] = [
             {"src" : "/images/slides/9.jpg"},
             {"src" : "/images/slides/10.jpg"},
             {"src" : "/images/slides/11.jpg"},
-        ]
+        ],
+        link : ["/horror", "https://horror-vault.netlify.app/"]
     },
     {
         title : 'Crack VR <br> with <span class="text-my-blue">Chelsea FC</span>',
@@ -41,7 +44,8 @@ const slides : SlideParent[] = [
             {"src" : "/images/slides/14.jpg"},
             {"src" : "/images/slides/15.jpg"},
             {"src" : "/images/slides/16.jpg"},
-        ]
+        ],
+        link : ["/chelsea"]
     },
     {
         title : 'Crack Headphones',
@@ -51,7 +55,8 @@ const slides : SlideParent[] = [
             {"src" : "/images/slides/18.jpg"},
             {"src" : "/images/slides/19.jpg"},
             {"src" : "/images/slides/20.jpg"},
-        ]
+        ],
+        link : ["/headphones"]
     },
 ]
 

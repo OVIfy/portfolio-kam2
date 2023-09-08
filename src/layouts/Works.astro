@@ -16,8 +16,8 @@ import data from '../data/slides.ts'
             <Heading set:html={item.title} slot='heading' Level="h2"></Heading>
 
             <div slot="action" class="flex gap-4">
-                <Button slot='action'>About</Button>
-                <Button fill>View Live Site</Button>
+                {item.link[0] && <a href={item.link[0]}><Button slot='action'>About</Button></a>}
+                {item.link[1] && <a href={item.link[1]} target="_blank"><Button fill>View Live Site</Button></a>}
             </div>
             
             {item.slides.map((data)=>{
