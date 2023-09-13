@@ -67,13 +67,12 @@ const {index = 0} = Astro.props
      let openNav = document.querySelector('.open-nav-btn') as HTMLElement
      let closeNav = document.querySelector('.close-nav-btn') as HTMLElement
      let nav = document.querySelector('.mob-nav') as HTMLElement
-     let mobLinks = document.querySelectorAll('.mob-link') as NodeListOf<HTMLElement>
-     let deskLinks = document.querySelectorAll('.desk-link') as NodeListOf<HTMLElement>
  
  
  
      openNav.addEventListener('click',()=>{
          nav.animate([{transform : 'translateX(0px)'}], {duration : 1000, fill:'forwards', easing : 'cubic-bezier(1, 0.6, 0.2, 1)'})
+         console.log('here')
      
      })
      closeNav.addEventListener('click',()=>{
