@@ -10,10 +10,11 @@ interface Prop{
     baseText? : string
     buttonText? : string
     actionText? : string
+    btnlink? : string
 }
 
 import { twMerge } from "tailwind-merge"
-const {titleText, inactive, noline, titleStyle, headingText, headingStyle, Htype = 'h1', bodyText, bodyStyle, baseText, buttonText, actionText, corner, w, h, cardStyle} = Astro.props
+const {titleText, inactive, noline, titleStyle, headingText, headingStyle, Htype = 'h1', bodyText, bodyStyle, baseText, buttonText, actionText, corner, w, h, cardStyle, btnlink} = Astro.props
 import Button from "./Button"
 ---
 <div class={twMerge("@container relative w-full h-full bg-horror-secondary-color card text-center sm:text-left", cardStyle)}>
@@ -39,7 +40,7 @@ import Button from "./Button"
             </div>
 
             <div class="text-[11px] inline-block"> <!--footer section -->
-                {buttonText && <Button inactive={inactive}>{buttonText}</Button>}
+                {buttonText && <a href={btnlink} target="_blank"><Button inactive={inactive}>{buttonText}</Button></a>}
                 {actionText && <strong tabindex="0" class="act mouse-change block py-3 px-2 focus:text-horror-neutral-color hover:text-horror-neutral-color hover:cursor-pointer sm:text-center">{actionText}</strong>}
             </div>
         </section>

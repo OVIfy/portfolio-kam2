@@ -25,7 +25,7 @@ const slides : SlideParent[] = [
     },
     {
         title : 'Horror Vault <br> with <span class="text-my-green">Spotify</span>',
-        base : ['UI/UX Design <br> Interaction Design', 'Concept, Basketball <br> March, 2023'],
+        base : ['UI/UX Design <br> Interaction Design', 'Concept, Horror <br> Febuary, 2023'],
         slides : [
             {"src" : "/images/slides/7.jpg"},
             {"src" : "/images/slides/8.jpg"},
@@ -37,7 +37,7 @@ const slides : SlideParent[] = [
     },
     {
         title : 'Crack VR <br> with <span class="text-my-blue">Chelsea FC</span>',
-        base : ['UI/UX Design <br> Interaction Design', 'Concept, Basketball <br> March, 2023'],
+        base : ['UX/Product Design', 'Sports, Virtual Reality, Luxury <br> June, 2022'],
         slides : [
             {"src" : "/images/slides/12.jpg"},
             {"src" : "/images/slides/13.jpg"},
@@ -49,7 +49,7 @@ const slides : SlideParent[] = [
     },
     {
         title : 'Crack Headphones',
-        base : ['UI/UX Design <br> Interaction Design', 'Concept, Basketball <br> March, 2023'],
+        base : ['UX/Product Design', 'Sound, Travel, Luxury <br> July, 2021'],
         slides : [
             {"src" : "/images/slides/17.jpg"},
             {"src" : "/images/slides/18.jpg"},

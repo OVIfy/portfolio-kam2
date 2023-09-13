@@ -14,9 +14,9 @@ const {footerStyle}  =  Astro.props
         <p class="text-[10px] lg:text-[16px] text-secondary-color font-bold hidden md:block">Designed by Kamil Oseni</p>
 
         <div class="flex items-center justify-center gap-[16px] py-4 md:py-0">
-            <p class="text-[10px] lg:text-[16px] text-secondary-color font-bold hidden md:block">Back to top</p>
+            <a href="#intro"><p class="text-[10px] lg:text-[16px] text-secondary-color font-bold hidden md:block">Back to top</p></a>
             <p class="text-[10px] lg:text-[16px] text-secondary-color font-bold md:hidden">Designed by Kamil Oseni</p>
-            <button class="w-[25px] md:w-[50px] aspect-square bg-center bg-contain bg-no-repeat bg-[url('/images/icons/icon-back-to-top.svg')]"></button>
+            <a href="#intro"><button class="w-[25px] md:w-[50px] aspect-square bg-center bg-contain bg-no-repeat bg-[url('/images/icons/icon-back-to-top.svg')]"></button></a>
         </div>
 
         <div class="py-6 md:p-[1px] text-center  md:bg-gradient-to-r inline-block from-white to-my-red right-3">
@@ -29,6 +29,12 @@ const {footerStyle}  =  Astro.props
                     '/images/icons/icon-door.png'
                 ]} 
                 contStyle="flex-row bg-black p-4"
+                links={[
+                    'https://www.twitter.com/KamilZamani1',
+                    'https://www.instagram.com/kamilzamani/',
+                    'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=kamilzoseni@gmail.com',
+                    'https://drive.google.com/file/d/1vEWwJIjXc2qVbOwGyAUes8z1Qcbr91y3/view?usp=sharing'
+                ]}
             />
         </div>
         <!-- <p class="text-[10px] lg:text-[16px] text-center justify-self-start text-secondary-color font-bold py-6 md:p-0 md:border-0 border-y-[1px] border-y-secondary-color border-opacity-50">Designed by Kamil Oseni</p> -->

@@ -17,11 +17,11 @@ import Footer from '../layouts/TheFooter.astro';
 import PreAbout from "@lay/horror/PreAbout.astro";
 ---
 <Layout title="Horror vault | Spotify">
-    <Header slot="header" index="1"/>
-
+    <Header index="1" slot="header"/>
+	<!-- <div class="pointer-events-none opacity-0 w-3 h-3 bg-horror-neutral-color normal fixed kur left-0 top-0 z-[500]"></div> -->
     <PreAbout />
 
-    <div class="opacity-0 about mt-20 md:mt-0">
+    <div class="opacity-0 about mt-20 md:mt-0" id="intro">
     <section class=" hero-section md:flex min-h-[85vh] relative mx-4 md:mr-0 lg:ml-[50px] xl:ml-[132px]">
         <div class="text-horror-secondary-color text-center flex flex-col justify-center md:w-[70%]">
             <p class="text-[11px] font-bold tracking-[6px] leading-5 md:text-[12px] md:tracking-[16px]"><span class="text-red-500 relative inline-block after:content-[''] after:inline-block after:w-[2px] after:bg-horror-secondary-color after:absolute after:bottom-0 after:top-0">#0</span> IMMERSIVE EXPERIENCE</p>
@@ -33,6 +33,7 @@ import PreAbout from "@lay/horror/PreAbout.astro";
                 headingText="PETRIFY"
                 bodyText="<span class='text-horror-neutral-color font-bloody text-[24px] md:text-[30px] lg:text-[40px] font-bold'>W</span>elcome to our horror website - where scares never end! With a minimalist design and immersive content, you'll easily navigate through bone-chilling stories and unnerving videos that will keep you entertained and terrified. So come on in and get ready for a thrilling ride into the darkest corners of horror!"
                 buttonText="VIEW DESIGN PROTOTYPE"
+                btnlink="https://www.figma.com/proto/TTDCre844MvHRppAZZ0oRn/Horror-Project?type=design&node-id=0-1&viewport=-1072%2C392%2C0.09&t=VMrU8uVbiFVdeO2a-0&scaling=min-zoom&starting-point-node-id=282%3A1750"
                 slot="right"
                 headingStyle="before:opacity-0"
                 bodyStyle="text-left"
@@ -419,6 +420,12 @@ import PreAbout from "@lay/horror/PreAbout.astro";
                             '/images/icons/icon-email.png',
                             '/images/icons/icon-door.png'
                         ]} 
+                        links={[
+                            'https://www.twitter.com/KamilZamani1',
+                            'https://www.instagram.com/kamilzamani/',
+                            'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=kamilzoseni@gmail.com',
+                            'https://drive.google.com/file/d/1vEWwJIjXc2qVbOwGyAUes8z1Qcbr91y3/view?usp=sharing'
+                        ]}
                     />
                 </div>
                 <div class="absolute top-0 left-0 hidden lg:flex justify-center text-center w-full">
@@ -434,6 +441,12 @@ import PreAbout from "@lay/horror/PreAbout.astro";
                     '/images/icons/icon-email.png',
                     '/images/icons/icon-door.png'
                 ]} 
+                links={[
+                    'https://www.twitter.com/KamilZamani1',
+                    'https://www.instagram.com/kamilzamani/',
+                    'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=kamilzoseni@gmail.com',
+                    'https://drive.google.com/file/d/1vEWwJIjXc2qVbOwGyAUes8z1Qcbr91y3/view?usp=sharing'
+                ]}
             />
            
         </div>
@@ -454,18 +467,6 @@ import PreAbout from "@lay/horror/PreAbout.astro";
         footerStyle="bg-grade md:bg-transparent relative"
     />
 </Layout>
-<script>
-    let heroArrow = document.querySelector('.hero-arrow') as HTMLElement
-    let overview = document.querySelector('.hero-section') as HTMLElement
-    let overviewTop = overview.getBoundingClientRect().bottom
-    let heroTop = heroArrow.getBoundingClientRect().top
-
-    // heroArrow.onclick = () => {
-    //     window.scrollTo({top:overviewTop, behavior:'smooth'})
-    // }
-
-    
-</script>
 <style>
     html, body{
         scroll-behavior: smooth;
@@ -481,5 +482,138 @@ import PreAbout from "@lay/horror/PreAbout.astro";
         background-color: #151515;
         opacity: 0.5;
         border-radius: 3px;
+    }
+
+    @media (any-hover:hover){
+		.pointed{
+			border-radius: 0%;
+			clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+			opacity: 1;
+		}
+
+		.normal{
+			border-radius: 100%;
+			opacity: 1;
+		}
+	}
+
+	
+	
+	@font-face{
+		font-family: "bloody";
+		src: url('/fonts/BLOODY.TTF') format('truetype');
+		font-weight:700;
+	}	
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-BoldG3.otf') format('opentype');
+		font-weight: 700;
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-BoldG3.otf') format('opentype');
+		font-weight: 600;
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-LightItalic.otf') format('opentype');
+		font-weight: normal;
+		font-style: italic
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-Light.otf') format('opentype');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-Semibold.otf') format('opentype');
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	@font-face{
+		font-family: "SF";
+		src: url('/fonts/SFUIText/SFUIText-Medium.otf') format('opentype');
+		font-weight: 500;
+		font-style: normal;
+	}
+
+	@font-face{
+		font-family: "Melted";
+		src: url('/fonts/MeltedMonster.ttf') format('opentype');
+		font-weight: 800;
+		font-style: normal;
+	}
+
+	*, *::after, *::before{
+		-webkit-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-app-region: none;
+		/* touch-action: none; */
+	}
+
+	.curses-carousel{
+		-webkit-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-app-region: none;
+		touch-action: none;
+	}
+
+	#stop-2{
+		/* offset-distance: 0%;
+		stop-color: red; */
+		stop-offset: 90%;
+	}
+
+	:root{
+		scrollbar-width: thin;
+        scrollbar-color: #E5322E black;
+	}
+
+	::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+	::-webkit-scrollbar-thumb {
+        background-color: #E5322E;
+        border-radius: 3px;
+    }
+
+	::-webkit-scrollbar-track {
+        background-color: black;
+        border-radius: 3px;
+    }
+
+	body{
+		padding : 0px;
+		margin: 0px;
+		cursor: none;
+	}
+
+	.click-me{
+        animation: blink 2s ease forwards infinite;
+        color: white;
+    }
+
+    @keyframes blink{
+        0%{
+            color:#E5322E;
+			border-bottom-color: #E5322E;
+        }
+        50%{
+            color:white;
+			border-bottom-color: white;
+        }100%{
+            color:#E5322E;
+			border-bottom-color: #E5322E;
+        }
     }
 </style>

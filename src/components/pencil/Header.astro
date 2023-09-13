@@ -3,7 +3,7 @@ import IconDeck from "@compo/IconDeck.astro";
 import TwoFace from "./TwoFace.astro";
 const {index} = Astro.props
 ---
-<header class="border-b-black border-b-[4px] bg-white">
+<header class="border-b-black border-b-[4px] bg-white fixed top-0 left-0 w-full z-10">
     
     <!-- mobile header -->
     <div class="pt-[54px] pb-3 px-5 md:py-11 lg:px-20">
@@ -12,7 +12,7 @@ const {index} = Astro.props
             <ul class="sm:flex items-center justify-center hidden gap-8 md:gap-16 text-neutral-color">
                 <li><a href="/" class:list={["desk-link transition-all duration-700 hover:cursor-pointer font-bold", index == 0 && "text-[#333333]"]}>Home</a></li>
                 <li><a href="#" class:list={["desk-link transition-all duration-700 hover:cursor-pointer font-bold", index == 1 && "text-[#333333]"]}>About</a></li>
-                <li><a href="https://pencil-hoops.netlify.app/" target="_blank" class:list={["text-white desk-link transition-all duration-700 hover:cursor-pointer bg-no-repeat font-bold py-2 px-4 inline-block bg-[url('/images/icons/icon-contact-btn.svg')]", index == 2 && "text-white"]}>Contact Us</a></li>
+                <li><a href="https://pencil-hoops.netlify.app/" target="_blank" class:list={["text-white desk-link transition-all duration-700 hover:cursor-pointer bg-no-repeat font-bold py-2 px-4 inline-block bg-[url('/images/icons/icon-contact-btn.svg')]", index == 2 && "text-white"]}>View Site</a></li>
             </ul>
             <TwoFace ratio='rect' width="70px" url1="/images/icons/icon-nba-b.svg" url2="/images/icons/icon-nba-c.svg"/>
         </div>
@@ -36,18 +36,24 @@ const {index} = Astro.props
         <!-- second part -->
         <ul class="mt-[41px] mb-[41px] text-[16px] font-bold text-secondary-color">
              <li class="group"><a href="/" class:list={["transition-all duration-700 flex items-center group mob-link group-hover:text-primary-color", index == 0 && "text-primary-color"]}>Home <span class:list={["ml-2 transition-all duration-700 inline-block h-[5px] w-[5px] group-hover:bg-primary-color", index == 0 && "bg-primary-color"]}></span></a></li>
-             <li class="my-[40px] group"><a href="/about" class:list={["transition-all duration-700 flex items-center group mob-link group-hover:text-primary-color", index == 1 && "text-primary-color"]} >About <span class:list={["ml-2 transition-all duration-700 inline-block h-[5px] w-[5px] group-hover:bg-primary-color", index == 1 && "bg-primary-color"]}></span></a></li>
-             <li class="group"><a href="/about/#contact" class:list={["transition-all duration-700 flex items-center group mob-link group-hover:text-primary-color", index == 2 && "text-primary-color"]}>Get in touch  <span class:list={["ml-2 transition-all duration-700 inline-block h-[5px] w-[5px] group-hover:bg-primary-color", index == 2 && "bg-primary-color"]}></span></a></li>
+             <li class="my-[40px] group"><a href="#" class:list={["transition-all duration-700 flex items-center group mob-link group-hover:text-primary-color", index == 1 && "text-primary-color"]} >About <span class:list={["ml-2 transition-all duration-700 inline-block h-[5px] w-[5px] group-hover:bg-primary-color", index == 1 && "bg-primary-color"]}></span></a></li>
+             <li class="group"><a href="https://pencil-hoops.netlify.app/" target="_blank" class:list={["transition-all duration-700 flex items-center group mob-link group-hover:text-primary-color", index == 2 && "text-primary-color"]}>View Site  <span class:list={["ml-2 transition-all duration-700 inline-block h-[5px] w-[5px] group-hover:bg-primary-color", index == 2 && "bg-primary-color"]}></span></a></li>
         </ul>
 
         <!-- third part -->
         <IconDeck
              urls={[
-                 '/images/icons/icon-twitter.svg',
-                 '/images/icons/icon-insta.svg',
-                 '/images/icons/icon-mail.svg',
-                 '/images/icons/icon-door.svg'
+                 '/images/pencil/icons/icon-twitter.svg',
+                 '/images/pencil/icons/icon-insta.svg',
+                 '/images/pencil/icons/icon-mail.svg',
+                 '/images/pencil/icons/icon-door.svg'
              ]} 
+             links={[
+                'https://www.twitter.com/KamilZamani1',
+                'https://www.instagram.com/kamilzamani/',
+                'https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=kamilzoseni@gmail.com',
+                'https://drive.google.com/file/d/1vEWwJIjXc2qVbOwGyAUes8z1Qcbr91y3/view?usp=sharing'
+            ]}
              width="12px"
              contStyle="flex-row p-2"
          />

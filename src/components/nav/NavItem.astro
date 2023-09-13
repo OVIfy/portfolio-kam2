@@ -1,11 +1,18 @@
 ---
+export interface Props{
+    selected? : boolean;
+    link? : string
+}
+
 import {twMerge} from 'tailwind-merge'
 
-const {selected} = Astro.props
+const {selected, link} = Astro.props
 ---
 <li class={twMerge(selected && 'text-my-red' ,'group flex justify-center flex-col items-center nav-item text-[14px] lg:text-[16px] transition-colors hover:text-my-red hover:cursor-pointer')}>
-    <slot/>
-    <hr class={twMerge(selected ? "h-[1px] w-[100%] bg-red-600 border-0"  :"transition-all w-[0%] duration-300 group-hover:w-full h-[1px] bg-red-600 border-0")}>
+    <a href={link}>
+        <slot/>
+        <hr class={twMerge(selected ? "h-[1px] w-[100%] bg-red-600 border-0"  :"transition-all w-[0%] duration-300 group-hover:w-full h-[1px] bg-red-600 border-0")}>
+    </a>
 </li>
 <style>
     .nav-item::after{

@@ -1,14 +1,16 @@
 ---
 export interface Props {
 	title: string;
+	style?:string
 }
 
-const { title } = Astro.props;
+const { title, style } = Astro.props;
 import {twMerge} from 'tailwind-merge'
+import { ViewTransitions } from 'astro:transitions';
 ---
 
 <!DOCTYPE html>
-<html lang="en" class={twMerge("bg-black")}>
+<html lang="en" class={twMerge("bg-black")} transition:animate="slide">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
@@ -21,8 +23,9 @@ import {twMerge} from 'tailwind-merge'
 		<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Great+Vibes&family=Mrs+Saint+Delafield&family=Petit+Formal+Script&family=Sofia&family=Dancing+Script&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Great+Vibes&family=Mrs+Saint+Delafield&family=Petit+Formal+Script&family=Sofia&family=Dancing+Script&display=swap" rel="stylesheet">
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
-	<body class="text-white font-SIFU" ondragstart="return false;" ondrop="return false;">
+	<body class={twMerge("text-white font-SIFU scroll-smooth", style)} ondragstart="return false;" ondrop="return false;">
 		<slot />
 	</body>
 </html>

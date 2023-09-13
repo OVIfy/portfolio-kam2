@@ -1,4 +1,8 @@
 ---
+export interface Props{
+    index? : number
+}
+
 import NavItem from '@compo/nav/NavItem.astro'
 import NavItems from '@compo/nav/NavItems.astro'
 import Button from '@compo/Button.astro'
@@ -21,18 +25,18 @@ const {index = 0} = Astro.props
 
    <NavItems style="hidden md:flex  justify-center items-center gap-4 xl:gap-16">
         <ul class="hidden md:flex gap-4 lg:gap-10 xl:gap-16">
-            <NavItem selected>Home</NavItem>
-            <NavItem>Featured Works</NavItem>
-            <NavItem>About</NavItem>
-            <NavItem>Resume</NavItem>
+            <NavItem selected={index == 0 && true} link="/">Home</NavItem>
+            <NavItem selected={index == 1 && true} link="#feat">Featured Works</NavItem>
+            <NavItem selected={index == 2 && true}>About</NavItem>
+            <NavItem selected={index == 3 && true} link="https://drive.google.com/file/d/1vEWwJIjXc2qVbOwGyAUes8z1Qcbr91y3/view?usp=sharing">Resume</NavItem>
         </ul>
-        <Button style="bg-my-red border-my-red hover:bg-my-red hover:text-white">Get in touch</Button>
+        <a href="#contact"><Button style="bg-my-red border-my-red hover:bg-my-red hover:text-white">Get in touch</Button></a>
         <!-- <LightBtn client:load/> -->
         
    </NavItems>
 </nav>
 
-<nav class="md:hidden bg-black mob-nav hide-nav transform absolute left-0 -translate-x-[300px] top-0 pl-4 pt-[68px] pb-[33px] pr-8 bg-primary-color z-50 rounded-r-[40px] shadow-[2px_2px_2px] shadow-my-red/[0.5]">
+<nav class="md:hidden bg-black mob-nav hide-nav transform absolute left-0 -translate-x-[300px] top-0 pl-4 pt-[68px] pb-[33px] pr-8 z-50 rounded-r-[40px] shadow-[2px_2px_2px] shadow-my-red/[0.5]">
      <!-- first part -->
      <div class="flex justify-end items-center">
           <!-- <div class="w-[59px] h-[64px] bg-[url('/images/fire.gif')] bg-cover bg-no-repeat bg-[center_left_-15px] bg-black bg-blend-hard-light "></div> -->

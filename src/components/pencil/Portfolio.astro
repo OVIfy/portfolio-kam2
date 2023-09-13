@@ -1,5 +1,5 @@
 ---
-const {name, title, body, url} = Astro.props
+const {name, title, body, url, link} = Astro.props
 ---
 <div class="text-secondary-color portfolio whitespace-normal w-[200px] sm:w-[300px] shrink-0 grow-0">
     <div class:list={["aspect-square bg-contain bg-no-repeat ", url]}></div>
@@ -9,7 +9,7 @@ const {name, title, body, url} = Astro.props
     <br>
     <p class="text-[14px] text-[#7d7d7d]">{body}</p>
     <br>
-    <div class="flex justify-between w-[90%] sm:w-[80%]"><p class="text-[11px] text-[#7d7d7d] font-bold text mouse-change">VIEW PORTFOLIO</p> <div class="w-[12px] h-[12px] bg-contain bg-no-repeat bg-center bg-[url('/images/icons/link.svg')] btn mouse-change"></div> </div>
+    <a href={link} target="_blank"><div class="flex justify-between w-[90%] sm:w-[80%]"><p class="text-[11px] text-[#7d7d7d] font-bold text mouse-change">VIEW PORTFOLIO</p> <div class="w-[12px] h-[12px] bg-contain bg-no-repeat bg-center bg-[url('/images/icons/link.svg')] btn mouse-change"></div> </div></a>
 </div>
 
 <style>

@@ -3,19 +3,20 @@ interface Props{
     urls : Array<string>,
     width? : string,
     contStyle? : string,
-    iconStyle? : string
+    iconStyle? : string,
+    links : string[]
 }
 
 import {twMerge} from 'tailwind-merge'
-const {urls, width, contStyle, iconStyle} = Astro.props
+const {urls, width, contStyle, iconStyle, links = []} = Astro.props
 ---
 
 <div class={twMerge("inline-flex flex-col gap-12 p-6", contStyle)}>
-    {urls && urls.map((url, i) =>{ 
+    {urls && urls.map((url, i:any) =>{ 
       if(i < 3)
-        return <img tabindex="0" width={width? width : "24px"} class={twMerge("mouse-change icon-to-red", iconStyle)} src={url}/>
+        return <a href={links[i] || '#'}><img tabindex="0" width={width? width : "24px"} class={twMerge("mouse-change icon-to-red", iconStyle)} src={url}/></a>
       else
-        return <img tabindex="0" width={width? width : "24px"} class={twMerge("mouse-change icon-to-white", iconStyle)} src={url}/>
+        return <a href={links[i] || '#'}><img tabindex="0" width={width? width : "24px"} class={twMerge("mouse-change icon-to-white", iconStyle)} src={url}/></a>
     })}
     <slot/>
 </div>
