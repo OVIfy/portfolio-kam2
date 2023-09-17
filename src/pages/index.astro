@@ -1,24 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Heading from '@compo/typography/Heading.astro';
-import Body from '@compo/typography/Body.astro'
-import Button from '@compo/Button.astro'
 import Nav from '@compo/nav/Nav.astro'
-import Section from '@compo/Section.astro'
 import Footer from '../layouts/TheFooter.astro';
-import ExpandableCard from '@compo/ExpandableCard.astro';
-import ExpandableCardList from '@compo/ExpandableCardList.astro';
-
-import Card2 from '@compo/Card.astro';
-
 import ContactUs from '@compo/ContactUs.astro';
 import Works from '../layouts/Works.astro';
 import DesignProcess from 'src/layouts/DesignProcess.astro'; 
 import Hero from 'src/layouts/Hero.astro'; 
 import UI from 'src/layouts/UI.astro';
 import Resources from 'src/layouts/Resources.astro';
-import DesignProcessDiagram from 'src/layouts/DesignProcessDiagram.astro';
+
+const showForm = Astro.locals.showForm
 ---
 
 <Layout title="Kamil Oseni">
@@ -30,7 +21,6 @@ import DesignProcessDiagram from 'src/layouts/DesignProcessDiagram.astro';
 		<Heading Level="h2">Hello World</Heading>
 		<Button>About</Button> -->
 		
-
 		<Hero/>
 
 		<div class="flex justify-center">
@@ -45,13 +35,8 @@ import DesignProcessDiagram from 'src/layouts/DesignProcessDiagram.astro';
 			</div>
 		</div>
 
-		<ContactUs/>
+		<ContactUs showForm={showForm}/>
 
 		<Footer/>
 	</main>
 </Layout>
-<style>
-    html, body{
-        scroll-behavior: smooth;
-    }
-</style>

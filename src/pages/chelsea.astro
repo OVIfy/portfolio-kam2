@@ -14,6 +14,8 @@ import Tools from '@lay/chelsea/Tools.astro';
 import Team from '@lay/chelsea/Team.astro';
 import ContactUs from '@lay/chelsea/ContactUs.astro'
 import Nexter from '@compo/Nexter.astro'
+
+const showForm = Astro.locals.showForm
 ---
 <Layout title="Crack X Chelsea">
     <div class="fixed w-full bg-black top-0 z-10 border-b-[1px] border-b-white border-opacity-20 ">
@@ -41,7 +43,7 @@ import Nexter from '@compo/Nexter.astro'
 
         <Team/>
 
-        <ContactUs/>
+        <ContactUs showForm={showForm}/>
     </main>
 
     <Nexter
