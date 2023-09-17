@@ -12,7 +12,7 @@ var transporter = nodemailer.createTransport({
 //template for mail that will be sent to kamil
 var mailOptions = {
     from: 'ifeanyiogbonnah41@gmail.com',
-    to: 'ovifeanyichukwu@gmail.com',
+    to: 'kamilzoseni@gmail.com',
     subject: '✨🌟MAIL FROM YOUR PORTFOLIO SITE✨🌟',
     html: ``
 };
