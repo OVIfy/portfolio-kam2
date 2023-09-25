@@ -18,20 +18,25 @@ let text = loadingTexts[Math.floor(randomIndex)]
 </div>
 <script>
     import { animate } from "framer-motion/dom"
+    let halfStop : number;
     const text = document.querySelector('.pre-text') as HTMLElement
 
     const body = document.querySelector('body') as HTMLElement
     if(body) body.style.overflowY = 'hidden'
 
-    animate(0, 10, {
+
+
+    const animation1 = animate(0, 50, {
                 onUpdate: latest => {
                     text.innerText = Math.round(latest) + "%"
+                    halfStop = Math.round(latest)
                 },
-                duration: 2,
+                duration: 30,
     })
 
     window.onload = async ()=>{
-        await animate(11, 100, {
+        animation1.stop()
+        await animate(halfStop, 100, {
                 onUpdate: latest => {
                     text.innerText = Math.round(latest) + "%"
                 },
