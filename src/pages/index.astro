@@ -8,11 +8,15 @@ import DesignProcess from 'src/layouts/DesignProcess.astro';
 import Hero from 'src/layouts/Hero.astro'; 
 import UI from 'src/layouts/UI.astro';
 import Resources from 'src/layouts/Resources.astro';
+import Loader from '@lay/Loader.astro';
 
 const showForm = Astro.locals.showForm
 ---
 
 <Layout title="Kamil Oseni">
+
+	<Loader/>
+
 	<div class="fixed w-full bg-black top-0 z-40 border-b-[1px] border-b-white border-opacity-20">
 		<Nav></Nav>
 	</div>

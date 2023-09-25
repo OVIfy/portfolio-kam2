@@ -1,0 +1,45 @@
+---
+
+const loadingTexts = [
+'"Did you know that 94% of first impressions of a product are <span class="text-my-red">design-related?"</span>',
+'“A website or app that is easy to use and navigate can increase <span class="text-my-red">user satisfaction</span> and reduce the likelihood of them abandoning.”',
+'“Did you know that the first Apple computer, the Apple I, was designed and hand-built by Steve Wozniak in just <span class="text-my-red">30 days</span>?”',
+'"Did you know that the famous <span class="text-my-red">red London phone booth</span>, was actually inspired by the design of a tomb!”',
+'"The <span class="text-my-red">hamburger menu</span> icon (three horizontal lines) was originally created for the Xerox Star, the world\'s first graphical user interface, in 1981."'
+]
+
+const randomIndex = Math.random() * 5
+let text = loadingTexts[Math.floor(randomIndex)]
+---
+<div class="fixed pre-loader top-0 left-0 w-full h-full bg-black z-[100] text-center px-[20px] md:px-[107px] flex flex-col justify-center items-center md:block">
+   <h1 class="font-bilal text-[18px] sm:text-[40px] lg:text-[56px] text-[#333333] mt-[50px] md:mt-[195px]">Kamil Oseni</h1>
+    <p class="text-[20px] sm:text-[30px] lg:text-[40px] mt-[24px]" set:html={text}></p>
+    <p class="pre-text text-[#919191] font-hand-dancing text-[40px] sm:text-[50px] lg:text-[100px] absolute bottom-[15%] right-[20%]">0%</p>
+</div>
+<script>
+    import { animate } from "framer-motion/dom"
+    const text = document.querySelector('.pre-text') as HTMLElement
+
+    const body = document.querySelector('body') as HTMLElement
+    if(body) body.style.overflowY = 'hidden'
+
+    animate(0, 10, {
+                onUpdate: latest => {
+                    text.innerText = Math.round(latest) + "%"
+                },
+                duration: 2,
+    })
+
+    window.onload = async ()=>{
+        await animate(11, 100, {
+                onUpdate: latest => {
+                    text.innerText = Math.round(latest) + "%"
+                },
+                duration: 3,
+                delay: 1
+        })
+
+        await animate(".pre-loader",{x: [0, window.screen.width] }, { type: "spring", duration : 2, delay : 1 })
+        if(body) body.style.overflowY = 'auto'
+    }
+</script>
