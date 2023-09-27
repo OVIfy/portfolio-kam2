@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 
 .npmrc
+
+# extra images already pushed to cloudinary
+public/images/slides
