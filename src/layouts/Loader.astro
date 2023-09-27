@@ -22,11 +22,8 @@ let text = loadingTexts[Math.floor(randomIndex)]
     const text = document.querySelector('.pre-text') as HTMLElement
 
     const body = document.querySelector('body') as HTMLElement
-    const LoaderElement = document.querySelector('.pre-loader') as HTMLElement
 
     if(body) body.style.overflowY = 'hidden'
-
-    const hasLoadedInWindowBefore = sessionStorage.getItem("hasLoaded")
 
     const animation1 = animate(0, 50, {
                 onUpdate: latest => {
