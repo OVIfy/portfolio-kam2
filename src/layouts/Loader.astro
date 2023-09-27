@@ -25,18 +25,10 @@ let text = loadingTexts[Math.floor(randomIndex)]
 
     if(body) body.style.overflowY = 'hidden'
 
-    const animation1 = animate(0, 50, {
-                onUpdate: latest => {
-                    text.innerText = Math.round(latest) + "%"
-                    halfStop = Math.round(latest)
-                },
-                duration: 30,
-    })
-
     window.onload = async ()=>{
         sessionStorage.setItem("hasLoaded", "true")
-        animation1.stop()
-        await animate(halfStop, 100, {
+        // animation1.stop()
+        await animate(0, 100, {
                 onUpdate: latest => {
                     text.innerText = Math.round(latest) + "%"
                 },
@@ -47,4 +39,14 @@ let text = loadingTexts[Math.floor(randomIndex)]
         await animate(".pre-loader",{x: [0, window.screen.width] }, { type: "spring", duration : 2, delay : 1 })
         if(body) body.style.overflowY = 'auto'
     }
+
+    // const animation1 = animate(0, 50, {
+    //             onUpdate: latest => {
+    //                 text.innerText = Math.round(latest) + "%"
+    //                 halfStop = Math.round(latest)
+    //             },
+    //             duration: 30,
+    // })
+
+   
 </script>
