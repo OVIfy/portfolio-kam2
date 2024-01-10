@@ -11,10 +11,10 @@ const loadingTexts = [
 const randomIndex = Math.random() * 5
 let text = loadingTexts[Math.floor(randomIndex)]
 ---
-<div class="fixed pre-loader top-0 left-0 w-full h-full bg-black z-[100] text-center px-[20px] md:px-[107px] flex flex-col justify-center items-center md:block">
-   <h1 class="font-bilal text-[18px] sm:text-[40px] lg:text-[56px] text-[#333333] mt-[50px] md:mt-[195px]">Kamil Oseni</h1>
-    <p class="text-[20px] sm:text-[30px] lg:text-[40px] mt-[24px]" set:html={text}></p>
-    <p class="pre-text text-[#919191] font-hand-dancing text-[40px] sm:text-[50px] lg:text-[100px] absolute bottom-[15%] right-[20%]">0%</p>
+<div class="fixed pre-loader top-0 left-0 w-full h-full bg-black z-[100] text-center px-[20px] md:px-[107px] flex flex-col justify-center items-center">
+    <h1 class="font-bilal text-[18px] sm:text-[40px] lg:text-[56px] text-[#333333]">Kamil Oseni</h1>
+    <p class="text-[20px] sm:text-[30px] lg:text-[40px]" set:html={text}></p>
+    <p class="pre-text text-[#919191] font-hand-dancing text-[40px] sm:text-[50px] lg:text-[100px] text-right w-full absolute px-[20px] md:px-[107px] bottom-6">0%</p>
 </div>
 <script>
     import { animate } from "framer-motion/dom"
