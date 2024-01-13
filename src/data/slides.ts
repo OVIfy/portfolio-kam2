@@ -1,5 +1,7 @@
 type slide = {
-    src : string
+    src : string,
+    width? : string | number,
+    height? : string | number
 }
 
 type SlideParent = {
@@ -43,11 +45,11 @@ const slides : SlideParent[] = [
         title : 'Crack VR <br> with <span class="text-my-blue">Chelsea FC</span>',
         base : ['UX/Product Design', 'Sports, Virtual Reality, Luxury <br> June, 2022'],
         slides : [
-            {"src" : "images/slides/chelsea/1.png"},
-            {"src" : "images/slides/chelsea/2.png"},
-            {"src" : "images/slides/chelsea/3.png"},
-            {"src" : "images/slides/chelsea/4.png"},
-            {"src" : "images/slides/chelsea/5.png"},
+            {"src" : "images/slides/chelsea/1.png", "width" : 1080, "height": 730},
+            {"src" : "images/slides/chelsea/2.png", "width" : 919, "height": 730},
+            {"src" : "images/slides/chelsea/3.png", "width" : 920, "height": 730},
+            {"src" : "images/slides/chelsea/4.png", "width" : 1147, "height": 730},
+            {"src" : "images/slides/chelsea/5.png", "width" : 1716, "height": 730},
         ],
         link : ["/chelsea"]
     },
